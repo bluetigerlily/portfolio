@@ -1,0 +1,13 @@
+package com.revature.basics;
+
+public class Bean {
+	
+	public String type;
+	public String color;
+	public Integer size;
+	public Boolean isCooked;
+	
+	
+	
+	
+}

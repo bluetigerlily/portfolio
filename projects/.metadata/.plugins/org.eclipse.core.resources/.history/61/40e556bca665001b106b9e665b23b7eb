@@ -1,0 +1,5 @@
+package com.revature.basics;
+
+public interface Mozzarella extends Cheese {
+
+}

@@ -1,0 +1,26 @@
+package com.revature.basics;
+
+public class JavaBasics {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//line comment
+		 /* 
+		  block comment
+		 */
+		System.out.println("Hello!");
+		
+		// primitive types
+		byte byteVar;		// 1 byte
+		short shortVar;  	// 2 byte													 //first letter lowercase then second word is uppercase
+		char charVar;		//2 bytes													// for naming conventions of variables
+		int intVar;			// 4 bytes
+		float floatVar;		//4 bytes
+		long longVar;       // 8 bytes
+		double doubleVar;   // 8 bytes
+		boolean boolVar;    //size is JVM dependant
+		
+		// reference/object types
+	}
+
+}

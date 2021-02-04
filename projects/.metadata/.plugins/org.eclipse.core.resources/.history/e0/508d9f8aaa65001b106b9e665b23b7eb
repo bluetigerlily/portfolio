@@ -1,0 +1,11 @@
+package com.revature.basics;
+
+public class Mozzarella implements Cheese {
+
+	@Override
+	public void eatCheese() {
+		// TODO Auto-generated method stub
+
+	}
+
+}
