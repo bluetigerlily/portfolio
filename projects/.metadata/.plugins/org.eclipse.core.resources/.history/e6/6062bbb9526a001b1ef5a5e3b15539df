@@ -1,0 +1,146 @@
+package com.revature.bicycleshop.users;
+
+public class Users {
+
+	
+	private static String cususername;
+	private static String cuspassword;
+	private static boolean biavailable;
+	private static int bioffer;
+	private static boolean biowned;
+	public static int bimodel;
+	private static int paymentplan;
+	private static int paymentsmade;
+	private static int paymentsremain;
+	public static int date;
+	private static boolean bipending;
+	private static String empusername;
+	private static String emppassword;
+	private static boolean employstatus;
+	private static String manusername;
+	private static String manpassword;
+	private static int sales;
+	private static int missedsales;
+	
+	
+	public Users(String cususername, String cuspassword, boolean biavailable, int bioffer, boolean biowned,int bimodel, int paymentplan, int paymentsmade, int paymentsremain, int date, boolean bipending, String empusername, String emppassword, boolean employstatus, String manusername, String manpassword, int sales, int missedsales)
+	{
+		super();
+		Users.cususername = cususername;
+		Users.cuspassword = cuspassword;
+		Users.biavailable = biavailable;
+		Users.bioffer = bioffer;
+		Users.bimodel = bimodel;
+		Users.paymentplan = paymentplan;
+		Users.paymentsmade = paymentsmade;
+		Users.paymentsremain = paymentsremain;
+		Users.date = date;
+		Users.bipending = bipending;
+		Users.empusername= empusername;
+		Users.emppassword = emppassword;
+		Users.employstatus = employstatus;
+		Users.manusername = manusername;
+		Users.manpassword = manpassword;
+		Users.sales = sales;
+		Users.missedsales = missedsales;
+	}
+	public Users()
+	{
+	}
+	public static String getCususername() {
+		return cususername;
+	}
+	public static void setCususername(String cususername) {
+		Users.cususername = cususername;
+	}
+	public static String getCuspassword() {
+		return cuspassword;
+	}
+	public static void setCuspassword(String cuspassword) {
+		Users.cuspassword = cuspassword;
+	}
+	public static boolean isBiavailable() {
+		return biavailable;
+	}
+	public static void setBiavailable(boolean biavailable) {
+		Users.biavailable = biavailable;
+	}
+	public static int getBioffer() {
+		return bioffer;
+	}
+	public void setBioffer(int bioffer) {
+		Users.bioffer = bioffer;
+	}
+	public static boolean isBiowned() {
+		return biowned;
+	}
+	public static void setBiowned(boolean biowned) {
+		Users.biowned = biowned;
+	}
+	public static int getPaymentplan() {
+		return paymentplan;
+	}
+	public static void setPaymentplan(int paymentplan) {
+		Users.paymentplan = paymentplan;
+	}
+	public static int getPaymentsmade() {
+		return paymentsmade;
+	}
+	public static void setPaymentsmade(int paymentsmade) {
+		Users.paymentsmade = paymentsmade;
+	}
+	public String getEmpusername() {
+		return empusername;
+	}
+	public static void setEmpusername(String empusername) {
+		Users.empusername = empusername;
+	}
+	public static boolean isEmploystatus() {
+		return employstatus;
+	}
+	public static void setEmploystatus(boolean employstatus) {
+		Users.employstatus = employstatus;
+	}
+	public String getManusername() {
+		return manusername;
+	}
+	public static void setManusername(String manusername) {
+		Users.manusername = manusername;
+	}
+	public static String getManpassword() {
+		return manpassword;
+	}
+	public static void setManpassword(String manpassword) {
+		Users.manpassword = manpassword;
+	}
+	public String getEmppassword() {
+		return emppassword;
+	}
+	public static void setEmppassword(String emppassword) {
+		Users.emppassword = emppassword;
+	}
+	public static int getPaymentsremain() {
+		return paymentsremain;
+	}
+	public static void setPaymentsremain(int paymentsremain) {
+		Users.paymentsremain = paymentsremain;
+	}
+	public static int getSales() {
+		return sales;
+	}
+	public static void setSales(int sales) {
+		Users.sales = sales;
+	}
+	public static int getMissedsales() {
+		return missedsales;
+	}
+	public static void setMissedsales(int missedsales) {
+		Users.missedsales = missedsales;
+	}
+	public static boolean isBipending() {
+		return bipending;
+	}
+	public static void setBipending(boolean bipending) {
+		Users.bipending = bipending;
+	}
+} 

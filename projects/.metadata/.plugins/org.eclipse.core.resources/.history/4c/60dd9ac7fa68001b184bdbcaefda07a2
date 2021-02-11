@@ -1,0 +1,28 @@
+package com.revature.bicycleshop.methods;
+
+import java.sql.SQLException;
+
+import com.revature.bicycleshop.interfaces.ManagerInterface;
+
+public class ManagerMethods implements ManagerInterface {
+
+	@Override
+	public int ManLogin(String manusername, String manpassword) throws SQLException {
+		// TODO Auto-generated method stub
+		return 1;
+	}
+
+	@Override
+	public String CreateEmployee(String manusername, String manpassword) throws SQLException {
+		// TODO Auto-generated method stub
+		String a =System.out.println("Employee has been created");
+		return String a;
+	}
+
+	@Override
+	public getSales(boolean bioffer) throws SQLException {
+		// TODO Auto-generated method stub
+		return 1;
+	}
+
+}

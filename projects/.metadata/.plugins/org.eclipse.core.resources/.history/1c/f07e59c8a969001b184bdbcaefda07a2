@@ -1,0 +1,7 @@
+package com.revature.bicycleshop.methods;
+
+import com.revature.bicycleshop.interfaces.EmployeeInterface;
+
+public class EmployeeMethods implements EmployeeInterface {
+
+}

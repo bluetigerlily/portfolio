@@ -1,0 +1,37 @@
+package com.revature.bicycleshop.merchandise;
+
+public class Bicycles {
+	
+	
+	
+	public static int bimodel;
+	public static String biname;
+	private static boolean biavailable;
+	public static Integer date;
+	
+	public Bicycles() {
+		
+	}
+	
+	public Bicycles(int bimodel, String biname, boolean biavailable, Integer date)
+	{
+		super();
+		Bicycles.bimodel = bimodel;
+		Bicycles.biname = biname;
+		Bicycles.setBiavailable(biavailable);
+		Bicycles.setDate(date);
+	}
+
+	public static boolean isBiavailable() {
+		return biavailable;
+	}
+
+	public static void setBiavailable(boolean biavailable) {
+		Bicycles.biavailable = biavailable;
+	}
+	public static void setDate(Integer date) {
+		Bicycles.date = date;
+	}
+	
+
+}

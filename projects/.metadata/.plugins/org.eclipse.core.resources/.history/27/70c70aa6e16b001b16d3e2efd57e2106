@@ -1,0 +1,10 @@
+package com.revature.bicycleshop.exceptions;
+
+@SuppressWarnings("serial")
+public class NonUniqueUsernameException extends Exceptions{
+	
+
+		public NonUniqueUsernameException () {
+			super("The requested username is taken.");
+		}
+	}

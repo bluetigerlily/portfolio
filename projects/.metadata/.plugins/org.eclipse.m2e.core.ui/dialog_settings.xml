@@ -19,6 +19,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\Desktop - Data Drive\Workspace\revature training\2102-feb01-usf\projects\BicycleShopProject\pom.xml"/>
 			<item value="D:\Desktop - Data Drive\Workspace\revature training\2102-feb01-usf\projects\BicycleShop"/>
 			<item value="D:\Desktop - Data Drive\Workspace\revature training clone\2102-feb01-usf\BicycleShop"/>
 		</list>
@@ -63,12 +64,15 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="BicycleStore"/>
 			<item value="BicycleShopProject"/>
 			<item value="Bicycleshop"/>
 		</list>
 		<list key="name">
+			<item value="BicycleStore"/>
 		</list>
 		<list key="artifactId">
+			<item value="BicycleStore"/>
 			<item value="BicycleShopProject"/>
 			<item value="postgres"/>
 		</list>

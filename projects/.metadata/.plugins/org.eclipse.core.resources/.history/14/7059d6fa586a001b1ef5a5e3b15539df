@@ -1,0 +1,71 @@
+package com.revature.bicycleshop.methods;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import com.revature.bicycleshop.connector.Connector;
+import com.revature.bicycleshop.interfaces.EmployeeInterface;
+import com.revature.bicycleshop.merchandise.Bicycles;
+import com.revature.bicycleshop.users.Employee;
+
+public class EmployeeMethods<bicycles> implements EmployeeInterface {
+
+	
+	Logger log = Logger.getLogger(EmployeeMethods.class.getName());
+	
+	@Override
+	public void EmpLogin(String empusername, String emppassword) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void CreateCustomer(String empusername, String emppassword) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void AddBi(List<Bicycles>) throws SQLException {
+		
+
+
+		String sii ="INSERT * From bicyclestoreschema. INTO 'bicycles'(bimodel, biavailable, biname) "
+				+ "VALUES(?,?,?)";
+		
+		
+		try (Connection connection = Connector.get_connection())
+		{	
+				
+		PreparedStatement preparedStatemnet = connection.prepareStatement(sii);
+		ResultSet rs = preparedStatemnet.executeQuery();
+				
+			for(Bicycles bicycles: List) 
+			{
+				sii.setString(1, bicycles.getBimodel());
+				sii.setString(2, bicycles.getBiavailable());
+				sii.setString(3, bicycles.getBiname());
+					sii.addBatch();
+					sii.executeBatch();
+			
+		}
+		
+		
+	}
+	
+	
+
+}
+
+	@Override
+	public void AddBiavailable(boolean biavailable, String biname) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}

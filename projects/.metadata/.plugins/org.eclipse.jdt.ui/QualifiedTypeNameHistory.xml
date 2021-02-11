@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="com.revature.types.SpecialNeed"/>
     <fullyQualifiedTypeName name="org.postgresql.Driver"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="com.revature.bicycleshop.methods.ManagementMethods"/>
+    <fullyQualifiedTypeName name="jdk.internal.org.jline.utils.Log"/>
+    <fullyQualifiedTypeName name="com.revature.bicycleshop.connector.Connector"/>
+    <fullyQualifiedTypeName name="com.revature.bicycleshop.methods.EmployeeMethods"/>
+    <fullyQualifiedTypeName name="com.revature.bicycleshop.interfaces.EmployeeInterface"/>
+    <fullyQualifiedTypeName name="com.revature.bicycleshop.methods.ManagerMethods"/>
+    <fullyQualifiedTypeName name="com.revature.bicycleshop.interfaces.ManagerInterface"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="com.revature.bicycleshop.interfaces.CustomerInterface"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.revature.bicycleshop.merchandise.Bicycles"/>
+    <fullyQualifiedTypeName name="com.revature.bicycleshop.users.Customer"/>
+    <fullyQualifiedTypeName name="java.util.HashSet"/>
+    <fullyQualifiedTypeName name="com.revature.bicycleshop.users.Employee"/>
+    <fullyQualifiedTypeName name="com.revature.bicycleshop.users.Users"/>
+    <fullyQualifiedTypeName name="com.revature.bicycleshop.users.Manager"/>
+    <fullyQualifiedTypeName name="com.revature.bicycleshop.exceptions.NonUniqueUsernameException"/>
+    <fullyQualifiedTypeName name="com.revature.bicycleshop.methods.CustomerMethods"/>
 </qualifiedTypeNameHistroy>
