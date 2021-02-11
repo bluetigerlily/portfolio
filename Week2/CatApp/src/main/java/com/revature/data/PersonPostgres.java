@@ -1,6 +1,9 @@
 package com.revature.data;
 
+<<<<<<< HEAD
 import java.beans.Statement;
+=======
+>>>>>>> 21ed6427d5de47694bab72e46cbd04bcc732accc
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +15,10 @@ import org.apache.log4j.Logger;
 
 import com.revature.beans.Cat;
 import com.revature.beans.Person;
+<<<<<<< HEAD
 import com.revature.beans.Role;
+=======
+>>>>>>> 21ed6427d5de47694bab72e46cbd04bcc732accc
 import com.revature.exceptions.NonUniqueUsernameException;
 import com.revature.utils.ConnectionUtil;
 
@@ -20,6 +26,7 @@ public class PersonPostgres implements PersonDAO {
 	private ConnectionUtil cu = ConnectionUtil.getConnectionUtil();
 	private Logger log = Logger.getLogger(PersonPostgres.class);
 	
+<<<<<<< HEAD
 	private PersonPostgres() {
 		HashSet<Person> Persons = new HashSet<Person>();
 	}
@@ -53,10 +60,17 @@ public class PersonPostgres implements PersonDAO {
 		}
 		
 		return newPerson;
+=======
+	@Override
+	public Person getById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+>>>>>>> 21ed6427d5de47694bab72e46cbd04bcc732accc
 	}
 
 	@Override
 	public Set<Person> getAll() {
+<<<<<<< HEAD
 		
 		try (Connection conn = cu.getConnection()) {
 		
@@ -132,6 +146,23 @@ public class PersonPostgres implements PersonDAO {
 		
 		
 		
+=======
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(Person t) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void delete(Person t) {
+		// TODO Auto-generated method stub
+
+	}
+>>>>>>> 21ed6427d5de47694bab72e46cbd04bcc732accc
 
 	@Override
 	public Person add(Person p) throws NonUniqueUsernameException {
@@ -168,6 +199,7 @@ public class PersonPostgres implements PersonDAO {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public Person getByUsername(String username)  {
 		// TODO Auto-generated method stub
 		try {
@@ -192,3 +224,28 @@ public class PersonPostgres implements PersonDAO {
 
 }
 		}
+=======
+	public Person getByUsername(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	private Set<Cat> getCatsByPersonId(Integer id, Connection conn) throws SQLException {
+		Set<Cat> cats = new HashSet<>();
+		CatDAO catDao = new CatPostgres();
+		
+		String sql = "select * from person_cat where person_id = ?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, id);
+		ResultSet rs = pstmt.executeQuery();
+		
+		while (rs.next()) {
+			Cat pet = catDao.getById(rs.getInt("cat_id"));
+			cats.add(pet);
+		}
+		
+		return cats;
+	}
+
+}
+>>>>>>> 21ed6427d5de47694bab72e46cbd04bcc732accc

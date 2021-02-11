@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: vhr82
 Build-Jdk: 15.0.1
+=======
+Built-By: SierraNicholes
+Build-Jdk: 1.8.0_241
+>>>>>>> 21ed6427d5de47694bab72e46cbd04bcc732accc
 Created-By: Maven Integration for Eclipse
 
