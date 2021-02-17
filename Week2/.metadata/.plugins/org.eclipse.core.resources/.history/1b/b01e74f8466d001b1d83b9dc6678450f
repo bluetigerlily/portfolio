@@ -1,0 +1,5 @@
+DRIVER=org.postgresql.Driver
+URL=jdbc:postgresql://localhost:5432/postgres?currentSchema=bicyclestoreschema
+USER=postgres
+PASS=4271
+

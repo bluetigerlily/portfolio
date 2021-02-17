@@ -1,13 +1,10 @@
 package com.revature.data;
 
-<<<<<<< HEAD
-import java.beans.Statement;
-=======
->>>>>>> 21ed6427d5de47694bab72e46cbd04bcc732accc
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,10 +12,7 @@ import org.apache.log4j.Logger;
 
 import com.revature.beans.Cat;
 import com.revature.beans.Person;
-<<<<<<< HEAD
 import com.revature.beans.Role;
-=======
->>>>>>> 21ed6427d5de47694bab72e46cbd04bcc732accc
 import com.revature.exceptions.NonUniqueUsernameException;
 import com.revature.utils.ConnectionUtil;
 
@@ -26,129 +20,66 @@ public class PersonPostgres implements PersonDAO {
 	private ConnectionUtil cu = ConnectionUtil.getConnectionUtil();
 	private Logger log = Logger.getLogger(PersonPostgres.class);
 	
-<<<<<<< HEAD
-	private PersonPostgres() {
-		HashSet<Person> Persons = new HashSet<Person>();
-	}
 	@Override
-	public Person getById(Integer id) throws Exception {
+	public Person getById(Integer id) {
+		Person person = null;
 		
-		Person newPerson = new Person();
 		try (Connection conn = cu.getConnection()) {
-			conn.setAutoCommit(false);
-			String sql = "select from person values (default, ?, ?, ?)";
-			String[] keys = {"id"};
-			PreparedStatement pstmt = conn.prepareStatement(sql, keys);
+			String sql = "select person.id as person_id, user_role.id as role_id, username, passwd, "
+					+ "user_role.name as role_name from person join user_role on user_role_id = user_role.id "
+					+ "where person.id = ?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			ResultSet rs = pstmt.executeQuery();
 			
-			ResultSet rs = pstmt.executeQuery(sql);
-			
-			
-	
-			
-			while (rs.next()) {
+			if (rs.next()) {
+				person = new Person();
+				person.setId(rs.getInt("person_id"));
+				person.setUsername(rs.getString("username"));
+				person.setPassword(rs.getString("passwd"));
+				Role role = new Role();
+				role.setId(rs.getInt("role_id"));
+				role.setName(rs.getString("role_name"));
+				person.setRole(role);
 				
-				newPerson.setId(rs.getInt("id"));
-				newPerson.setUsername(rs.getString("username"));
-				newPerson.setPassword(rs.getString("password"));
-			} 
-			
-		} catch (Exception e) {
-			if (e.getMessage().contains("violates unique constraint")) {
-				throw new NonUniqueUsernameException();
+				person.setCats(getCatsByPersonId(person.getId(), conn));
 			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return newPerson;
-=======
-	@Override
-	public Person getById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
->>>>>>> 21ed6427d5de47694bab72e46cbd04bcc732accc
+		return person;
 	}
 
 	@Override
 	public Set<Person> getAll() {
-<<<<<<< HEAD
+		Set<Person> people = new HashSet<>();
 		
 		try (Connection conn = cu.getConnection()) {
-		
+			String sql = "select person.id as person_id, user_role.id as role_id, username, passwd, "
+					+ "user_role.name as role_name from person join user_role on user_role_id = user_role.id";
+			Statement state = conn.createStatement();
+			ResultSet rs = state.executeQuery(sql);
 			
-			
-			
-		
-	}
-
-	@Override
-		public void update(Person p) {
-			try(Connection conn = cu.getConnection()){
-				conn.setAutoCommit(false);
-				String sql= "update person set username = ?, passwd = ?,user_role_id = ?";
-				PreparedStatement pstmt = conn.prepareStatement(sql);
+			while (rs.next()) {
+				Person human = new Person();
+				human.setId(rs.getInt("person_id"));
+				human.setUsername(rs.getString("username"));
+				human.setPassword(rs.getString("passwd"));
+				Role job = new Role();
+				job.setId(rs.getInt("role_id"));
+				job.setName(rs.getString("role_name"));
+				human.setRole(job);
 				
-				pstmt.setString(1, p.getUsername());
-				pstmt.setString(2, p.getPassword());
-				pstmt.setInt(3, p.getRole().getId());
+				human.setCats(getCatsByPersonId(human.getId(), conn));
 				
-				int rowsAffected = pstmt.executeUpdate();
-				
-				if(rowsAffected > 0) {
-					conn.commit();
-				}else {
-					conn.rollback();
-				}
-				
-			}catch(Exception e) {
-				e.printStackTrace();
+				people.add(human);
 			}
-
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-
-
-
-	@Override
-	public void delete(Person t) throws Exception {
 		
-		try (Connection conn = cu.getConnection()) {
-			conn.setAutoCommit(false);
-		String sql = "delete from person where values (default, ?, ?, ?)";
-		String[] keys = {"id"};
-		PreparedStatement pstmt = conn.prepareStatement(sql, keys);
-		pstmt.setString(1, t.getUsername());
-		pstmt.setString(2, t.getPassword());
-		pstmt.setInt(3, t.getRole().getId());
-		
-		pstmt.executeUpdate();
-		ResultSet rs = pstmt.getGeneratedKeys();
-		
-		
-		
-		if (rs.next()) {
-			t.setId(rs.getInt(1));
-			t.setUsername(rs.getString(2));
-			t.setPassword(rs.getString(3));
-					conn.commit();
-	} else {
-		conn.rollback();
-	}
-	
-} catch (Exception e) {
-	if (e.getMessage().contains("violates unique constraint")) {
-		throw new NonUniqueUsernameException();
-	}
-	e.printStackTrace();
-			}
-
-			return;
-	}
-	
-		
-		
-		
-=======
-		// TODO Auto-generated method stub
-		return null;
+		return people;
 	}
 
 	@Override
@@ -162,7 +93,6 @@ public class PersonPostgres implements PersonDAO {
 		// TODO Auto-generated method stub
 
 	}
->>>>>>> 21ed6427d5de47694bab72e46cbd04bcc732accc
 
 	@Override
 	public Person add(Person p) throws NonUniqueUsernameException {
@@ -199,35 +129,38 @@ public class PersonPostgres implements PersonDAO {
 	}
 
 	@Override
-<<<<<<< HEAD
-	public Person getByUsername(String username)  {
-		// TODO Auto-generated method stub
-		try {
-			Connection conn = cu.getConnection();
-			String sql = "select * from person where username = ?";
-			PreparedStatement pstmt = conn.prepareStatement(sql);
-		
-			ResultSet rs = pstmt.executeQuery();
-			Person pers =  new Person();
-			   pers.setId(rs.getInt("id"));
-			   pers.setUsername(rs.getString("username"));
-			   Role role = new Role();
-			   role.setId(rs.getInt("id"));
-			   role.setName(rs.getString("name"));
-			   pers.setRole(role);
-			  
-			   
-			
-			return pers;
-		}catch(Exception e) {e.printStackTrace();}
-	    return null;
-
-}
-		}
-=======
 	public Person getByUsername(String username) {
-		// TODO Auto-generated method stub
-		return null;
+		Person human = null;
+		
+		try (Connection conn = cu.getConnection())
+		{
+			String sql = "select person.id as person_id, user_role.id as role_id, username, passwd, "
+					+ "user_role.name as role_name from person "
+					+ "join user_role on user_role_id = user_role.id where username = ?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, username);
+			ResultSet rs = pstmt.executeQuery();
+			
+			if (rs.next())
+			{
+				human = new Person();
+				human.setUsername(rs.getString("username"));
+				human.setId(rs.getInt("person_id"));
+				human.setPassword(rs.getString("passwd"));
+				Role job = new Role();
+				job.setId(rs.getInt("role_id"));
+				job.setName(rs.getString("role_name"));
+				human.setRole(job);
+				human.setCats(getCatsByPersonId(human.getId(), conn));
+			}
+						
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return human;
 	}
 	
 	private Set<Cat> getCatsByPersonId(Integer id, Connection conn) throws SQLException {
@@ -248,4 +181,3 @@ public class PersonPostgres implements PersonDAO {
 	}
 
 }
->>>>>>> 21ed6427d5de47694bab72e46cbd04bcc732accc

@@ -1,0 +1,9 @@
+DRIVER=org.postgresql.Driver
+URL=jdbc:postgresql://localhost:5432/postgres?currentSchema=bicyclestoreschema
+USER=postgres
+PASS=4271
+
+private static final Logger LOGGER = Logger.getLogger(Connector.class.getName());
+			public static final String URL = "jdbc:postgresql://localhost:5432/postgres";
+			public static final String USER = "postgres";
+			public static final String PASS = "4271";

@@ -1,34 +1,15 @@
 package com.revature.bicycleshop.users;
 
-import java.sql.DriverManager;
-import java.sql.NClob;
-import java.sql.PreparedStatement;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.SQLException;
-import java.sql.SQLWarning;
-import java.sql.SQLXML;
-import java.sql.Savepoint;
-import java.sql.Statement;
-import java.sql.Struct;
-import java.sql.Wrapper;
-import java.util.*;
-import java.util.concurrent.Executor;
-import com.revature.bicycleshop.interfaces.*;
-import java.sql.Array;
-import java.sql.Blob;
-import java.sql.CallableStatement;
-import java.sql.Clob;
-import java.sql.ResultSet;
-import java.sql.SQLClientInfoException;
-
 public class Employee extends Manager {
 	
 	private static Integer empid;
-	private static boolean bipending;
+	private static boolean bipending; //needs to be joined to bioffer in customer table
 	private static String empusername;
 	private static String emppassword;
 	private static boolean employstatus;
+	private static boolean biavailable;
+	private static String biname;
+	private static Integer bimodel;
 	
 	
 	
@@ -64,9 +45,11 @@ public class Employee extends Manager {
 		Employee.empid = empid;
 	}
 	public Employee() {
-		
 	}
 	
+	public Employee(int i, String string, String string2) {
+		// TODO Auto-generated constructor stub
+	}
 	public static boolean isBipending() {
 		return bipending;
 	}
@@ -75,11 +58,11 @@ public class Employee extends Manager {
 		Employee.bipending = bipending;
 	}
 
-	public static String getEmppassword() {
+	public String getEmppassword() {
 		return emppassword;
 	}
 
-	public static void setEmppassword(String emppassword) {
+	public void setEmppassword(String emppassword) {
 		Employee.emppassword = emppassword;
 	}
 
@@ -87,7 +70,7 @@ public class Employee extends Manager {
 		return empusername;
 	}
 
-	public static void setEmpusername(String empusername) {
+	public void setEmpusername(String empusername) {
 		Employee.empusername = empusername;
 	}
 
@@ -101,12 +84,34 @@ public class Employee extends Manager {
 	public static Integer getEmpid() {
 		return empid;
 	}
+	
 	public void setEmpid(Integer empid) {
 		Employee.empid = empid;
 	}
 	
+	public void setBiavailable(boolean biavailable) {
+		Employee.biavailable = biavailable;
+	}
 	
-	 
+	public boolean isBiavailable() {
+		return biavailable;
+	}
+	
+	public void setBiname(String biname) {
+		Employee.biname = biname;
+	}
+	
+	public String getBiname() {
+		return biname;
+	}
+	
+	public void setBimodel(Integer bimodel) {
+		Employee.bimodel = bimodel;
+	}
+	
+	public Integer getBimodel() {
+		return bimodel;
+	}
 	
 }
 

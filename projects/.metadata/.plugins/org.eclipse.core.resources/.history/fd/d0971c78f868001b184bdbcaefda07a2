@@ -1,7 +1,0 @@
-package com.revature.bicycleshop.methods;
-
-import com.revature.bicycleshop.interfaces.ManagerInterface;
-
-public class ManagerMethods implements ManagerInterface {
-
-}

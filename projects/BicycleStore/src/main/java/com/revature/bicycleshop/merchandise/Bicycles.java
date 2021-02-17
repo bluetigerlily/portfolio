@@ -10,21 +10,21 @@ public class Bicycles {
 	public static Integer date;
 	private static boolean bioffer;
 	
+	
+	public Bicycles(boolean biavailable, Integer bimodel, String biname)
+	{
+		super();
+		Bicycles.biavailable = biavailable;
+		Bicycles.bimodel = bimodel;
+		Bicycles.biname = biname;
+		
+	}
+
 	public Bicycles() {
 		
 	}
-	
-	public Bicycles(Integer bimodel, String biname, boolean biavailable, Integer date, boolean bioffer)
-	{
-		super();
-		Bicycles.bimodel = bimodel;
-		Bicycles.biname = biname;
-		Bicycles.biavailable = biavailable;
-		Bicycles.date = date;
-		Bicycles.bioffer = bioffer;
-	}
 
-	public static boolean isBiavailable() {
+	public boolean isBiavailable(boolean b) {
 		return biavailable;
 	}
 
@@ -43,9 +43,25 @@ public class Bicycles {
 		Bicycles.bioffer = bioffer;
 	}
 	
-	public void setBimodel(Integer bimodel) {
-		Bicycles.bimodel = bimodel;
+	public Integer setBimodel(Integer bimodel) {
+		return Bicycles.bimodel = bimodel;
 	}
+
+	public Integer getBimodel() {
+		
+		return bimodel;
+	}
+	public String getBiname() {
+		return biname;
+	}
+
+	public String setBiname(String biname) {
+		return Bicycles.biname = biname;
+		
+	}
+	
+	
+	
 
 
 	

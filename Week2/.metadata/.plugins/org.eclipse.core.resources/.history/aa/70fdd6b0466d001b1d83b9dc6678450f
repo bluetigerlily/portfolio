@@ -1,0 +1,216 @@
+package com.revature.bicycleshop.methods;
+
+
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.sql.Connection;
+import java.util.*;
+import com.revature.bicycleshop.connector.*;
+import com.revature.bicycleshop.exceptions.NonUniqueUsernameException;
+import com.revature.bicycleshop.interfaces.*;
+import com.revature.bicycleshop.merchandise.Bicycles;
+import java.sql.ResultSet;
+import com.revature.bicycleshop.users.Customer;
+import org.apache.log4j.Logger;
+
+
+
+public class CustomerMethods implements CustomerInterface{
+	
+	
+	private Connector conn = Connector.getConnector();
+	Logger log = Logger.getLogger(CustomerMethods.class.getName());
+	
+	
+	
+	
+	/*
+	 cususername - string to store the username variable 
+	 * cuspassword - string to store the password variable
+	 * biavailable - boolean will be true or false if true display to customer the bicycle is available if false don't display
+	 * bioffer - int will be used to calculate paymentplan and paymentsremain
+	 * biowned - boolean will be true or false if true display to customer the bicycle is owned if false don't display
+	 * bimodel - int will be identifier of the bicycle type
+	 * paymentplan - int will be the weekly number of payments required to pay off the price of bicycle
+	 * paymentsmade - int will be number of weekly payments made to date
+	 * paymentsremain - int number of payments remaining is (bioffer/paymentplan)-paymentsmade
+	 * date - int to store the date
+	 */	
+	
+	
+//	@Override
+//	public void CreateCustomer(String cususername, String cuspassword) throws SQLException {
+//		
+//		
+//		try (Connection connection = Connector.get_connection())
+//	
+//		{
+//						
+//			String sqb = "INSERT INTO bicyclestoreschema.'customer'\r\n"
+//					+"(cususername, cuspassword) \r\n"
+//								+"VALUES();";
+//	
+//			PreparedStatement preparedStatement =connection.prepareStatement(sqb);
+//			preparedStatement.setString(1,Customer.getCususername());
+//			preparedStatement.setString(2, Customer.getCuspassword());
+//			
+//		
+//			
+//		}
+//	catch (SQLException e)
+//		{
+//		System.out.println(e.getMessage());
+//		throw new SQLException("Internal Error Occured Please Contact the System Admin. ");
+//		}
+//		return;
+//		
+//	}
+	
+	@SuppressWarnings("unused")
+	@Override
+	public  List<Bicycles> getAvailable(boolean biavailable) throws SQLException {
+		
+		String szz ="SELECT * From bicyclestoreschema.'bicycles' WHERE biavailable =? ";
+		
+		
+		List<Bicycles> getAvailableList = new ArrayList<>();
+		
+		
+			return getAvailableList;
+		}
+
+//
+//	@Override
+//	public int MakeOffer(int bioffer, int paymentplan) throws SQLException {
+//	
+//		
+//		
+//		String sww ="SELECT * From bicyclestoreschema.'customer' WHERE biavailable, cususername, cuspassword =? ";
+//		
+//		String syy ="INSERT * From bicyclestoreschema.'customer' WHERE bioffer, paymentplan =? ";
+//		
+//		try (Connection connection = Connector.get_connection())
+//		{
+//			
+//			
+//			
+//			PreparedStatement preparedStatemnet1 = connection.prepareStatement(sww);
+//			ResultSet rt = preparedStatemnet1.executeQuery();
+//			
+//			PreparedStatement preparedStatemnet = connection.prepareStatement(syy);
+//			ResultSet rs = preparedStatemnet.executeQuery();
+//			
+//			while(rs.next())
+//			{
+//				Customer customer = new Customer();
+//				customer.setBioffer(rs.getInt("bioffer"));
+//				customer.setPaymentplan(rs.getInt("paymentplan"));
+//				
+//			}
+//		}
+//			catch (SQLException ex) {
+//				System.out.println(ex.getMessage());
+//			}
+//		
+//		return bioffer;
+//		
+//	}
+	@Override
+	public List<Customer> ViewOwned(boolean biowned) throws SQLException {
+		
+		
+		
+		@SuppressWarnings("unused")
+		String spp ="SELECT * From bicyclestoreschema.'customer' WHERE biowned =? ";
+		
+		List<Customer> ListBiowned = new ArrayList<>();
+		
+		
+		
+		return ListBiowned;
+	}
+
+	
+@Override
+	public Customer CusLogin(String username, String password) throws Exception{
+		
+	Customer newCustomer = new Customer();
+		try (Connection con = conn.getConnection()){
+			con.setAutoCommit(false);
+			String sql  ="SELECT * From bicyclestoreschema' INTO 'customer' WHERE (cususername, cuspassword)  =VALUES(?, ?)";
+			String[] keys = {"username, password"};
+			PreparedStatement pmpt = con.prepareStatement(sql, keys);
+			pmpt.executeUpdate();
+			ResultSet rs = pmpt.getGeneratedKeys();
+				while(rs.next()) {
+					newCustomer.setCususername(rs.getString("username"));
+					newCustomer.setCuspassword(rs.getString("password"));
+				} }
+				catch (Exception e) {
+					if (e.getMessage().contains("violates unique constraint")) {
+						throw new NonUniqueUsernameException();
+					}     e.printStackTrace();
+				}    return newCustomer; 
+		}
+	@Override
+	public int MakeOfferBiOffer(int bioffer) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int MakeOfferPaymentPlan(int paymentplan) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int ViewPaymentsRemaining(int paymentsremain) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	
+	
+	@Override
+	public Customer CreateCustomer(Customer customer) throws Exception {
+		Customer c = null;
+		
+		try (Connection con = conn.getConnection()){
+			con.setAutoCommit(false);
+			String sql ="INSERT *  INTO customer  cusid, cususername, cuspassword"
+					+ " =VALUES(default, ?, ?)";
+			String[] keys = {"cusid"};
+			PreparedStatement pmpt = con.prepareStatement(sql, keys);
+			pmpt.setString(2, customer.getCususername());
+			pmpt.setString(3, customer.getCuspassword());
+			pmpt.executeUpdate();
+			ResultSet rs = pmpt.getGeneratedKeys();
+			
+			while (rs.next()) {
+				 Customer custard = new Customer();
+				c = custard;
+				c.setCusid(rs.getInt(1));
+				con.commit(); 
+				if(c.equals(null)) {
+					con.rollback(); } } 
+		} catch (Exception e ) {
+	throw new NonUniqueUsernameException();		}
+		return c; } 
+			}
+		
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+		

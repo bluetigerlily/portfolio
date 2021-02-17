@@ -1,0 +1,127 @@
+package com.revature.bicycleshop.users;
+
+
+
+
+public class Customer extends Employee {
+	
+	
+	
+	//going to use Customer as my generic customer user
+		/*
+		 * Customer Variables
+		 * cususername - string to store the username variable 
+		 * cuspassword - string to store the password variable
+		 * biavailable - boolean will be true or false if true display to customer the bicycle is available if false don't display
+		 * bioffer - Integer will be used to calculate paymentplan and paymentsremain
+		 * biowned - boolean will be true or false if true display to customer the bicycle is owned if false don't display
+		 * bimodel - Integer will be identifier of the bicycle type
+		 * paymentplan - Integer will be the weekly number of payments required to pay off the price of bicycle
+		 * paymentsmade - Integer will be number of weekly payments made to date
+		 * paymentsremain - Integer number of payments remaining is (bioffer/paymentplan)-paymentsmade
+		 * date - Integer to store the date
+		 */
+	
+	
+	
+		private static Integer cusid;
+		private static String cususername;
+		private static String cuspassword;
+		public static boolean biavailable;
+		private static Integer bioffer;
+		public static boolean biowned;
+		public static Integer paymentplan;
+		public static Integer paymentsmade;
+		public static Integer paymentsremain;
+		public static Integer date;
+		
+		
+		
+		//getters and setters
+		
+		public Customer(Integer cusid, String cususername, String cuspassword, boolean biavailable, Integer bioffer, boolean biowned, Integer paymentplan, Integer paymentsmade, Integer paymentsremain, Integer date)
+		{
+			super();
+			Customer.cusid = cusid;
+			Customer.cususername = cususername;
+			Customer.cuspassword = cuspassword;
+			Customer.biavailable = biavailable;
+			Customer.bioffer = bioffer;
+			Customer.biowned = biowned;
+			Customer.paymentplan = paymentplan;
+			Customer.paymentsmade = paymentsmade;
+			Customer.paymentsremain = paymentsremain;
+			Customer.date = date;
+		}
+			
+		public Customer() {
+		}
+
+
+
+
+		public String getCususername() {
+			return cususername;
+		}
+		public void setCususername(String cususername) {
+			Customer.cususername = cususername;
+		}
+		public String getCuspassword() {
+			return cuspassword;
+		}
+		public void setCuspassword(String cuspassword) {
+			Customer.cuspassword = cuspassword;
+		}
+		public boolean isBiavailable() {
+			return biavailable;
+		}
+		public void setBiavailable(boolean biavailable) {
+			Customer.biavailable = biavailable;
+		}
+		public static Integer getBioffer() {
+			return bioffer;
+		}
+		public void setBioffer(Integer bioffer) {
+			Customer.bioffer = bioffer;
+		}
+		public static boolean isBiowned() {
+			return biowned;
+		}
+		public static void setBiowned(boolean biowned) {
+			Customer.biowned = biowned;
+		}
+		public static Integer getPaymentplan() {
+			return paymentplan;
+		}
+		public static void setPaymentplan(Integer paymentplan) {
+			Customer.paymentplan = paymentplan;
+		}
+		public static Integer getPaymentsremain() {
+			return paymentsremain;
+		}
+		public static void setPaymentsremain(Integer paymentsremain) {
+			Customer.paymentsremain = paymentsremain;
+		}
+		public static Integer getPaymentsmade() {
+			return paymentsmade;
+		}
+		public static void paymentsmade(Integer paymentsmade) {
+			Customer.paymentsmade = paymentsmade;
+		}
+		public Integer getCusid() {
+			return cusid;
+		}
+
+		public void setCusid(Integer cusid) {
+			Customer.cusid = cusid;
+		}
+
+
+		public void setCustomer(Customer createCustomer) {
+			
+			
+		}
+
+
+
+}

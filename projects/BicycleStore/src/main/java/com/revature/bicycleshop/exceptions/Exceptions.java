@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class Exceptions {
 
+	@SuppressWarnings({ "unused", "null" })
 	public static void main(String[] args) {
 		int a = 0;
 		
@@ -37,6 +38,7 @@ public class Exceptions {
 		System.out.println("no issues :)");
 	}
 	
+	@SuppressWarnings("unused")
 	private static void recursion() {
 		recursion();
 	}
@@ -46,6 +48,7 @@ public class Exceptions {
 			throw new CustomException();
 	}
 }
+@SuppressWarnings("serial")
 class CustomException extends Exception {
 	
 }

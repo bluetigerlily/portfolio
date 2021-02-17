@@ -1,27 +1,5 @@
 package com.revature.bicycleshop.users;
 
-import java.sql.DriverManager;
-import java.sql.NClob;
-import java.sql.PreparedStatement;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.SQLException;
-import java.sql.SQLWarning;
-import java.sql.SQLXML;
-import java.sql.Savepoint;
-import java.sql.Statement;
-import java.sql.Struct;
-import java.sql.Wrapper;
-import java.util.*;
-import java.util.concurrent.Executor;
-import com.revature.bicycleshop.interfaces.*;
-import java.sql.Array;
-import java.sql.Blob;
-import java.sql.CallableStatement;
-import java.sql.Clob;
-import java.sql.ResultSet;
-import java.sql.SQLClientInfoException;
-
 
 
 
@@ -48,11 +26,11 @@ public class Customer extends Employee {
 	
 		private static Integer cusid;
 		private static String cususername;
-		public static String cuspassword;
+		private static String cuspassword;
 		public static boolean biavailable;
-		private static Integer bioffer;
-		public static boolean biowned;
-		public static Integer paymentplan;
+		private static Integer bioffer; //needs to be joined to bipending in employee table and bimodel in bicycles table
+		public static boolean biowned; //needs to be joined to bimodel in bicycles table
+		public static Integer paymentplan;//make note this is linked with bioffer
 		public static Integer paymentsmade;
 		public static Integer paymentsremain;
 		public static Integer date;
@@ -61,13 +39,12 @@ public class Customer extends Employee {
 		
 		//getters and setters
 		
-		public Customer(Integer cusid, String cususername, String cuspassword, boolean biavailable, Integer bioffer, boolean biowned, Integer paymentplan, Integer paymentsmade, Integer paymentsremain, Integer date)
+		public Customer(Integer cusid, String cususername, String cuspassword, Integer bioffer, boolean biowned, Integer paymentplan, Integer paymentsmade, Integer paymentsremain, Integer date)
 		{
 			super();
 			Customer.cusid = cusid;
 			Customer.cususername = cususername;
 			Customer.cuspassword = cuspassword;
-			Customer.biavailable = biavailable;
 			Customer.bioffer = bioffer;
 			Customer.biowned = biowned;
 			Customer.paymentplan = paymentplan;
@@ -82,6 +59,14 @@ public class Customer extends Employee {
 
 
 
+		public Customer(int i, String string, String string2) {
+			// TODO Auto-generated constructor stub
+		}
+
+		public Customer(String string, String string2) {
+			// TODO Auto-generated constructor stub
+		}
+
 		public String getCususername() {
 			return cususername;
 		}
@@ -94,43 +79,43 @@ public class Customer extends Employee {
 		public void setCuspassword(String cuspassword) {
 			Customer.cuspassword = cuspassword;
 		}
-		public static boolean isBiavailable() {
+		public boolean isBiavailable(boolean biavailable) {
 			return biavailable;
 		}
-		public static void setBiavailable(boolean biavailable) {
+		public void setBiavailable(boolean biavailable) {
 			Customer.biavailable = biavailable;
 		}
-		public static Integer getBioffer() {
+		public Integer getBioffer() {
 			return bioffer;
 		}
 		public void setBioffer(Integer bioffer) {
 			Customer.bioffer = bioffer;
 		}
-		public static boolean isBiowned() {
+		public boolean isBiowned(boolean biowned) {
 			return biowned;
 		}
 		public static void setBiowned(boolean biowned) {
 			Customer.biowned = biowned;
 		}
-		public static Integer getPaymentplan() {
+		public Integer getPaymentplan() {
 			return paymentplan;
 		}
-		public static void setPaymentplan(Integer paymentplan) {
+		public void setPaymentplan(Integer paymentplan) {
 			Customer.paymentplan = paymentplan;
 		}
-		public static Integer getPaymentsremain() {
+		public Integer getPaymentsremain() {
 			return paymentsremain;
 		}
-		public static void setPaymentsremain(Integer paymentsremain) {
+		public void setPaymentsremain(Integer paymentsremain) {
 			Customer.paymentsremain = paymentsremain;
 		}
-		public static Integer getPaymentsmade() {
+		public Integer getPaymentsmade() {
 			return paymentsmade;
 		}
-		public static void paymentsmade(Integer paymentsmade) {
+		public void setPaymentsmade(Integer paymentsmade) {
 			Customer.paymentsmade = paymentsmade;
 		}
-		public static Integer getCusid() {
+		public Integer getCusid() {
 			return cusid;
 		}
 

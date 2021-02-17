@@ -1,0 +1,299 @@
+2021-02-11 23:31:43 INFO  BicycleShopController:78 - User is exiting the application.
+2021-02-11 23:32:01 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 00:33:51 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 00:34:15 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 00:34:15 WARN  BicycleShopController:367 - User tried to register with a non-unique username.
+2021-02-12 00:35:02 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 00:35:02 WARN  BicycleShopController:367 - User tried to register with a non-unique username.
+2021-02-12 00:54:50 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 00:55:01 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 00:55:01 WARN  BicycleShopController:367 - User tried to register with a non-unique username.
+2021-02-12 00:55:47 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 00:55:47 WARN  BicycleShopController:367 - User tried to register with a non-unique username.
+2021-02-12 00:59:14 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 00:59:22 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 00:59:23 WARN  BicycleShopController:367 - User tried to register with a non-unique username.
+2021-02-12 01:11:35 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 01:11:44 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 01:11:45 WARN  BicycleShopController:367 - User tried to register with a non-unique username.
+2021-02-12 01:38:34 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 01:38:44 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 01:38:44 WARN  BicycleShopController:367 - User tried to register with a non-unique username.
+2021-02-12 01:41:09 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 01:41:15 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 01:41:15 WARN  BicycleShopController:367 - User tried to register with a non-unique username.
+2021-02-12 01:54:20 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 01:54:37 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 01:54:38 WARN  BicycleShopController:367 - User tried to register with a non-unique username.
+2021-02-12 02:01:11 INFO  BicycleShopController:78 - User is exiting the application.
+2021-02-12 02:01:22 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 02:01:32 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 02:01:32 WARN  BicycleShopController:367 - User tried to register with a non-unique username.
+2021-02-12 02:01:45 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 02:01:45 WARN  BicycleShopController:367 - User tried to register with a non-unique username.
+2021-02-12 02:07:38 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 02:07:46 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 02:07:46 WARN  BicycleShopController:367 - User tried to register with a non-unique name.
+2021-02-12 09:16:58 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 09:17:11 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 09:17:12 WARN  BicycleShopController:367 - User tried to register with a non-unique name.
+2021-02-12 09:20:14 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 09:20:42 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 09:20:42 WARN  BicycleShopController:367 - User tried to register with a non-unique name.
+2021-02-12 09:21:06 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 09:21:06 WARN  BicycleShopController:367 - User tried to register with a non-unique name.
+2021-02-12 09:22:08 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 09:22:17 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 09:22:17 WARN  BicycleShopController:367 - User tried to register with a non-unique name.
+2021-02-12 09:22:25 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 09:22:25 WARN  BicycleShopController:367 - User tried to register with a non-unique name.
+2021-02-12 09:25:20 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 09:25:27 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 09:25:28 WARN  BicycleShopController:367 - User tried to register with a non-unique name.
+2021-02-12 09:26:44 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 09:26:48 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 09:26:48 WARN  BicycleShopController:367 - User tried to register with a non-unique name.
+2021-02-12 09:35:59 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 09:36:05 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 09:36:05 WARN  BicycleShopController:367 - User tried to register with a non-unique name.
+2021-02-12 09:37:31 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 09:37:43 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 09:37:43 WARN  BicycleShopController:367 - User tried to register with a non-unique name.
+2021-02-12 09:40:03 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 09:40:07 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 09:40:07 WARN  BicycleShopController:367 - User tried to register with a non-unique name.
+2021-02-12 09:55:36 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 09:55:44 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 09:55:44 WARN  BicycleShopController:367 - User tried to register with a non-unique name.
+2021-02-12 09:57:51 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 09:57:57 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 09:58:35 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 09:58:40 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 09:58:40 DEBUG BicycleShopController:362 - com.revature.bicycleshop.users.Customer@1d296da
+2021-02-12 10:00:22 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 10:00:26 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 10:00:27 DEBUG BicycleShopController:362 - com.revature.bicycleshop.users.Customer@557caf28
+2021-02-12 10:02:19 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 10:02:25 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 10:02:25 DEBUG BicycleShopController:362 - com.revature.bicycleshop.users.Customer@6771beb3
+2021-02-12 10:39:17 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 10:39:27 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 10:39:27 DEBUG BicycleShopController:362 - com.revature.bicycleshop.users.Customer@6771beb3
+2021-02-12 15:07:53 INFO  BicycleShopController:62 - User is registering an account.
+2021-02-12 15:08:03 DEBUG BicycleShopController:359 - Submitting new Customer Information to the database...
+2021-02-12 15:08:03 DEBUG BicycleShopController:362 - com.revature.bicycleshop.users.Customer@6771beb3
+2021-02-12 15:09:10 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 15:14:57 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 15:22:01 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 15:22:07 DEBUG BicycleShopController:330 - User entered an incorrect password.
+2021-02-12 15:23:58 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 15:24:03 DEBUG BicycleShopController:330 - User entered an incorrect password.
+2021-02-12 15:25:44 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 15:25:48 DEBUG BicycleShopController:330 - User entered an incorrect password.
+2021-02-12 15:28:42 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 15:34:19 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 15:43:52 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 15:43:56 DEBUG BicycleShopController:329 - User entered an incorrect password.
+2021-02-12 15:46:21 INFO  BicycleShopController:78 - User is exiting the application.
+2021-02-12 15:46:28 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 15:46:32 DEBUG BicycleShopController:325 - Customer logged in successfully.
+2021-02-12 15:46:32 DEBUG BicycleShopController:326 - com.revature.bicycleshop.users.Customer@411f53a0
+2021-02-12 16:31:10 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 16:31:17 DEBUG BicycleShopController:325 - Customer logged in successfully.
+2021-02-12 16:31:17 DEBUG BicycleShopController:326 - com.revature.bicycleshop.users.Customer@1d296da
+2021-02-12 16:36:54 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 16:37:14 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 16:37:42 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 16:37:46 DEBUG BicycleShopController:330 - User entered an incorrect password.
+2021-02-12 16:59:21 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 16:59:24 DEBUG BicycleShopController:326 - Customer logged in successfully.
+2021-02-12 16:59:24 DEBUG BicycleShopController:327 - com.revature.bicycleshop.users.Customer@76505305
+2021-02-12 17:00:44 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 17:00:50 DEBUG BicycleShopController:326 - Customer logged in successfully.
+2021-02-12 17:00:50 DEBUG BicycleShopController:327 - com.revature.bicycleshop.users.Customer@1d296da
+2021-02-12 17:02:54 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 17:02:58 DEBUG BicycleShopController:326 - Customer logged in successfully.
+2021-02-12 17:02:58 DEBUG BicycleShopController:327 - com.revature.bicycleshop.users.Customer@1d296da
+2021-02-12 17:06:45 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 17:06:50 DEBUG BicycleShopController:326 - Customer logged in successfully.
+2021-02-12 17:06:50 DEBUG BicycleShopController:327 - com.revature.bicycleshop.users.Customer@5b7a5baa
+2021-02-12 17:48:07 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 17:48:11 DEBUG BicycleShopController:326 - Customer logged in successfully.
+2021-02-12 17:48:11 DEBUG BicycleShopController:327 - com.revature.bicycleshop.users.Customer@3c22fc4c
+2021-02-12 17:59:37 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 17:59:41 DEBUG BicycleShopController:326 - Customer logged in successfully.
+2021-02-12 17:59:41 DEBUG BicycleShopController:327 - com.revature.bicycleshop.users.Customer@1534f01b
+2021-02-12 18:05:16 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 18:05:19 DEBUG BicycleShopController:326 - Customer logged in successfully.
+2021-02-12 18:05:19 DEBUG BicycleShopController:327 - com.revature.bicycleshop.users.Customer@1534f01b
+2021-02-12 18:06:53 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 18:06:57 DEBUG BicycleShopController:326 - Customer logged in successfully.
+2021-02-12 18:06:57 DEBUG BicycleShopController:327 - com.revature.bicycleshop.users.Customer@1534f01b
+2021-02-12 18:16:08 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 18:16:12 DEBUG BicycleShopController:326 - Customer logged in successfully.
+2021-02-12 18:16:12 DEBUG BicycleShopController:327 - com.revature.bicycleshop.users.Customer@3eb7fc54
+2021-02-12 18:21:49 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 18:21:53 DEBUG BicycleShopController:326 - Customer logged in successfully.
+2021-02-12 18:21:53 DEBUG BicycleShopController:327 - com.revature.bicycleshop.users.Customer@3eb7fc54
+2021-02-12 18:28:04 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 18:28:09 DEBUG BicycleShopController:323 - Customer entered a username that doesn't exist.
+2021-02-12 18:31:03 INFO  BicycleShopController:66 - Customer is logging in.
+2021-02-12 18:31:07 DEBUG BicycleShopController:326 - Customer logged in successfully.
+2021-02-12 18:31:07 DEBUG BicycleShopController:327 - com.revature.bicycleshop.users.Customer@363ee3a2
+2021-02-13 07:12:03 INFO  BicycleShopController:67 - Customer is logging in.
+2021-02-13 07:12:07 DEBUG BicycleShopController:343 - Customer logged in successfully.
+2021-02-13 07:12:07 DEBUG BicycleShopController:344 - com.revature.bicycleshop.users.Customer@363ee3a2
+2021-02-15 06:03:22 INFO  BicycleShopController:70 - Customer is logging in.
+2021-02-15 06:03:25 DEBUG BicycleShopController:415 - Customer logged in successfully.
+2021-02-15 06:03:25 DEBUG BicycleShopController:416 - com.revature.bicycleshop.users.Customer@4690b489
+2021-02-15 06:58:33 INFO  BicycleShopController:70 - Customer is logging in.
+2021-02-15 06:58:37 DEBUG BicycleShopController:472 - Customer logged in successfully.
+2021-02-15 06:58:37 DEBUG BicycleShopController:473 - com.revature.bicycleshop.users.Customer@4690b489
+2021-02-15 06:59:53 INFO  BicycleShopController:70 - Customer is logging in.
+2021-02-15 06:59:56 DEBUG BicycleShopController:472 - Customer logged in successfully.
+2021-02-15 06:59:56 DEBUG BicycleShopController:473 - com.revature.bicycleshop.users.Customer@175c2241
+2021-02-15 07:08:03 INFO  BicycleShopController:74 - Employee is logging in.
+2021-02-15 07:08:07 DEBUG BicycleShopController:441 - Employee logged in successfully.
+2021-02-15 07:08:07 DEBUG BicycleShopController:442 - com.revature.bicycleshop.users.Employee@175c2241
+2021-02-15 07:12:15 INFO  BicycleShopController:74 - Employee is logging in.
+2021-02-15 07:12:20 DEBUG BicycleShopController:441 - Employee logged in successfully.
+2021-02-15 07:12:20 DEBUG BicycleShopController:442 - com.revature.bicycleshop.users.Employee@175c2241
+2021-02-15 17:54:32 INFO  BicycleShopController:69 - Customer is logging in.
+2021-02-15 17:54:35 DEBUG BicycleShopController:506 - Customer logged in successfully.
+2021-02-15 17:54:35 DEBUG BicycleShopController:507 - com.revature.bicycleshop.users.Customer@4690b489
+2021-02-15 17:54:51 INFO  BicycleShopController:73 - Employee is logging in.
+2021-02-15 17:54:58 DEBUG BicycleShopController:475 - Employee logged in successfully.
+2021-02-15 17:54:58 DEBUG BicycleShopController:476 - com.revature.bicycleshop.users.Employee@1c93084c
+2021-02-16 12:31:50 INFO  BicycleShopController:68 - Customer is logging in.
+2021-02-16 12:31:54 DEBUG BicycleShopController:516 - Customer logged in successfully.
+2021-02-16 12:31:54 DEBUG BicycleShopController:517 - com.revature.bicycleshop.users.Customer@363ee3a2
+2021-02-16 12:36:36 INFO  BicycleShopController:68 - Customer is logging in.
+2021-02-16 12:36:41 DEBUG BicycleShopController:513 - Customer logged in successfully.
+2021-02-16 12:36:41 DEBUG BicycleShopController:514 - com.revature.bicycleshop.users.Customer@363ee3a2
+2021-02-16 12:41:49 INFO  BicycleShopController:68 - Customer is logging in.
+2021-02-16 12:41:55 DEBUG BicycleShopController:518 - Customer logged in successfully.
+2021-02-16 12:41:55 DEBUG BicycleShopController:519 - com.revature.bicycleshop.users.Customer@363ee3a2
+2021-02-16 12:50:33 INFO  BicycleShopController:68 - Customer is logging in.
+2021-02-16 12:50:38 DEBUG BicycleShopController:517 - Customer logged in successfully.
+2021-02-16 12:50:38 DEBUG BicycleShopController:518 - com.revature.bicycleshop.users.Customer@363ee3a2
+2021-02-16 13:03:42 INFO  BicycleShopController:61 - Customer is logging in.
+2021-02-16 13:03:46 DEBUG BicycleShopController:523 - Customer logged in successfully.
+2021-02-16 13:03:46 DEBUG BicycleShopController:524 - com.revature.bicycleshop.users.Customer@363ee3a2
+2021-02-16 13:04:09 INFO  BicycleShopController:62 - Customer is logging in.
+2021-02-16 13:04:15 DEBUG BicycleShopController:524 - Customer logged in successfully.
+2021-02-16 13:04:15 DEBUG BicycleShopController:525 - com.revature.bicycleshop.users.Customer@363ee3a2
+2021-02-16 13:07:21 INFO  BicycleShopController:63 - Customer is logging in.
+2021-02-16 13:07:25 DEBUG BicycleShopController:528 - Customer logged in successfully.
+2021-02-16 13:07:25 DEBUG BicycleShopController:529 - com.revature.bicycleshop.users.Customer@363ee3a2
+2021-02-16 13:08:53 INFO  BicycleShopController:63 - Customer is logging in.
+2021-02-16 13:08:59 DEBUG BicycleShopController:528 - Customer logged in successfully.
+2021-02-16 13:08:59 DEBUG BicycleShopController:529 - com.revature.bicycleshop.users.Customer@363ee3a2
+2021-02-16 13:09:32 INFO  BicycleShopController:63 - Customer is logging in.
+2021-02-16 13:09:34 DEBUG BicycleShopController:528 - Customer logged in successfully.
+2021-02-16 13:09:34 DEBUG BicycleShopController:529 - com.revature.bicycleshop.users.Customer@363ee3a2
+2021-02-16 13:10:32 INFO  BicycleShopController:63 - Customer is logging in.
+2021-02-16 13:10:35 DEBUG BicycleShopController:528 - Customer logged in successfully.
+2021-02-16 13:10:35 DEBUG BicycleShopController:529 - com.revature.bicycleshop.users.Customer@363ee3a2
+2021-02-16 13:12:33 INFO  BicycleShopController:68 - Employee is logging in.
+2021-02-16 13:12:37 DEBUG BicycleShopController:497 - Employee logged in successfully.
+2021-02-16 13:12:37 DEBUG BicycleShopController:498 - com.revature.bicycleshop.users.Employee@363ee3a2
+2021-02-16 13:17:51 INFO  BicycleShopController:63 - Customer is logging in.
+2021-02-16 13:17:55 DEBUG BicycleShopController:531 - Customer logged in successfully.
+2021-02-16 13:17:55 DEBUG BicycleShopController:532 - com.revature.bicycleshop.users.Customer@363ee3a2
+2021-02-16 13:20:58 INFO  BicycleShopController:63 - Customer is logging in.
+2021-02-16 13:21:02 DEBUG BicycleShopController:536 - Customer logged in successfully.
+2021-02-16 13:21:02 DEBUG BicycleShopController:537 - com.revature.bicycleshop.users.Customer@363ee3a2
+2021-02-16 13:21:41 INFO  BicycleShopController:196 - User logged out
+2021-02-16 13:22:37 INFO  BicycleShopController:68 - Employee is logging in.
+2021-02-16 13:22:41 DEBUG BicycleShopController:505 - Employee logged in successfully.
+2021-02-16 13:22:41 DEBUG BicycleShopController:506 - com.revature.bicycleshop.users.Employee@363ee3a2
+2021-02-16 13:26:50 INFO  BicycleShopController:63 - Customer is logging in.
+2021-02-16 13:26:54 DEBUG BicycleShopController:535 - Customer logged in successfully.
+2021-02-16 13:26:54 DEBUG BicycleShopController:536 - com.revature.bicycleshop.users.Customer@363ee3a2
+2021-02-16 13:26:56 INFO  BicycleShopController:196 - User logged out
+2021-02-16 13:27:06 INFO  BicycleShopController:68 - Employee is logging in.
+2021-02-16 13:27:10 DEBUG BicycleShopController:504 - Employee logged in successfully.
+2021-02-16 13:27:10 DEBUG BicycleShopController:505 - com.revature.bicycleshop.users.Employee@1c93084c
+2021-02-16 13:32:24 INFO  BicycleShopController:68 - Employee is logging in.
+2021-02-16 13:32:29 DEBUG BicycleShopController:504 - Employee logged in successfully.
+2021-02-16 13:32:29 DEBUG BicycleShopController:505 - com.revature.bicycleshop.users.Employee@363ee3a2
+2021-02-16 13:38:09 INFO  BicycleShopController:68 - Employee is logging in.
+2021-02-16 13:38:13 DEBUG BicycleShopController:504 - Employee logged in successfully.
+2021-02-16 13:38:13 DEBUG BicycleShopController:505 - com.revature.bicycleshop.users.Employee@363ee3a2
+2021-02-16 13:47:19 INFO  BicycleShopController:68 - Employee is logging in.
+2021-02-16 13:47:24 DEBUG BicycleShopController:504 - Employee logged in successfully.
+2021-02-16 13:47:24 DEBUG BicycleShopController:505 - com.revature.bicycleshop.users.Employee@363ee3a2
+2021-02-16 13:51:58 INFO  BicycleShopController:63 - Customer is logging in.
+2021-02-16 13:52:07 INFO  BicycleShopController:68 - Employee is logging in.
+2021-02-16 13:52:10 DEBUG BicycleShopController:504 - Employee logged in successfully.
+2021-02-16 13:52:10 DEBUG BicycleShopController:505 - com.revature.bicycleshop.users.Employee@363ee3a2
+2021-02-16 13:54:26 INFO  BicycleShopController:68 - Employee is logging in.
+2021-02-16 13:54:31 DEBUG BicycleShopController:504 - Employee logged in successfully.
+2021-02-16 13:54:31 DEBUG BicycleShopController:505 - com.revature.bicycleshop.users.Employee@363ee3a2
+2021-02-16 13:58:10 INFO  BicycleShopController:68 - Employee is logging in.
+2021-02-16 13:58:14 DEBUG BicycleShopController:503 - Employee logged in successfully.
+2021-02-16 13:58:14 DEBUG BicycleShopController:504 - com.revature.bicycleshop.users.Employee@363ee3a2
+2021-02-16 22:49:48 INFO  BicycleShopController:73 - Manager is logging in.
+2021-02-16 22:49:53 DEBUG BicycleShopController:460 - Manager logged in successfully.
+2021-02-16 22:49:53 DEBUG BicycleShopController:461 - com.revature.bicycleshop.users.Manager@363ee3a2
+2021-02-16 23:00:48 INFO  BicycleShopController:73 - Manager is logging in.
+2021-02-16 23:00:53 DEBUG BicycleShopController:460 - Manager logged in successfully.
+2021-02-16 23:00:53 DEBUG BicycleShopController:461 - com.revature.bicycleshop.users.Manager@363ee3a2
+2021-02-16 23:01:09 DEBUG BicycleShopController:591 - Submitting new Employee Information to the database...
+2021-02-16 23:01:09 WARN  BicycleShopController:599 - User tried to register with a non-unique username.
+2021-02-16 23:02:44 DEBUG BicycleShopController:591 - Submitting new Employee Information to the database...
+2021-02-16 23:02:44 DEBUG BicycleShopController:594 - com.revature.bicycleshop.users.Employee@49d904ec
+2021-02-16 23:04:27 INFO  EmployeeMethods:133 - Attempting to add the entered bicycles values from the system: com.revature.bicycleshop.merchandise.Bicycles@48e4374
+2021-02-16 23:04:27 DEBUG EmployeeMethods:149 - Exception thrown when trying to add: com.revature.bicycleshop.merchandise.Bicycles@48e4374
+2021-02-16 23:10:48 INFO  BicycleShopController:68 - Employee is logging in.
+2021-02-16 23:10:55 DEBUG BicycleShopController:491 - Employee logged in successfully.
+2021-02-16 23:10:55 DEBUG BicycleShopController:492 - com.revature.bicycleshop.users.Employee@363ee3a2
+2021-02-16 23:11:09 INFO  EmployeeMethods:133 - Attempting to add the entered bicycles values from the system: com.revature.bicycleshop.merchandise.Bicycles@79b06cab
+2021-02-16 23:11:09 DEBUG EmployeeMethods:149 - Exception thrown when trying to add: com.revature.bicycleshop.merchandise.Bicycles@79b06cab
+2021-02-16 23:17:09 INFO  BicycleShopController:68 - Employee is logging in.
+2021-02-16 23:17:13 DEBUG BicycleShopController:491 - Employee logged in successfully.
+2021-02-16 23:17:13 DEBUG BicycleShopController:492 - com.revature.bicycleshop.users.Employee@363ee3a2
+2021-02-16 23:17:27 INFO  EmployeeMethods:133 - Attempting to add the entered bicycles values from the system: com.revature.bicycleshop.merchandise.Bicycles@79b06cab
+2021-02-16 23:17:27 INFO  EmployeeMethods:146 - Error adding bicycles: com.revature.bicycleshop.merchandise.Bicycles@79b06cab
+2021-02-16 23:22:46 INFO  BicycleShopController:68 - Employee is logging in.
+2021-02-16 23:22:51 DEBUG BicycleShopController:491 - Employee logged in successfully.
+2021-02-16 23:22:51 DEBUG BicycleShopController:492 - com.revature.bicycleshop.users.Employee@363ee3a2
+2021-02-16 23:23:08 INFO  EmployeeMethods:133 - Attempting to add the entered bicycles values from the system: com.revature.bicycleshop.merchandise.Bicycles@79b06cab
+2021-02-16 23:23:08 INFO  EmployeeMethods:141 - Bicycles values were added successfully: com.revature.bicycleshop.merchandise.Bicycles@79b06cab
+2021-02-17 02:16:50 INFO  BicycleShopController:59 - User is registering an account.
+2021-02-17 02:16:59 DEBUG BicycleShopController:587 - Submitting new Customer Information to the database...
+2021-02-17 02:16:59 DEBUG BicycleShopController:590 - com.revature.bicycleshop.users.Customer@7adda9cc
+2021-02-17 03:48:25 DEBUG EmployeeMethods:147 - Exception thrown when trying to delete bicycle entered: com.revature.bicycleshop.merchandise.Bicycles@2ea41516
+2021-02-17 03:48:25 INFO  EmployeeMethods:157 - Attempting to add the entered bicycles values from the system: com.revature.bicycleshop.merchandise.Bicycles@48aca48b
+2021-02-17 03:48:25 INFO  EmployeeMethods:165 - Bicycles values were added successfully: com.revature.bicycleshop.merchandise.Bicycles@48aca48b
+2021-02-17 03:49:23 DEBUG EmployeeMethods:147 - Exception thrown when trying to delete bicycle entered: com.revature.bicycleshop.merchandise.Bicycles@2ea41516
+2021-02-17 03:49:23 INFO  EmployeeMethods:157 - Attempting to add the entered bicycles values from the system: com.revature.bicycleshop.merchandise.Bicycles@659499f1
+2021-02-17 03:49:23 INFO  EmployeeMethods:165 - Bicycles values were added successfully: com.revature.bicycleshop.merchandise.Bicycles@659499f1
+2021-02-17 03:49:59 DEBUG EmployeeMethods:147 - Exception thrown when trying to delete bicycle entered: com.revature.bicycleshop.merchandise.Bicycles@2ea41516
+2021-02-17 03:49:59 INFO  EmployeeMethods:157 - Attempting to add the entered bicycles values from the system: com.revature.bicycleshop.merchandise.Bicycles@659499f1
+2021-02-17 03:49:59 INFO  EmployeeMethods:165 - Bicycles values were added successfully: com.revature.bicycleshop.merchandise.Bicycles@659499f1
+2021-02-17 03:50:24 DEBUG EmployeeMethods:147 - Exception thrown when trying to delete bicycle entered: com.revature.bicycleshop.merchandise.Bicycles@2ea41516
+2021-02-17 03:50:24 INFO  EmployeeMethods:157 - Attempting to add the entered bicycles values from the system: com.revature.bicycleshop.merchandise.Bicycles@659499f1
+2021-02-17 03:50:24 INFO  EmployeeMethods:165 - Bicycles values were added successfully: com.revature.bicycleshop.merchandise.Bicycles@659499f1
+2021-02-17 03:52:20 DEBUG EmployeeMethods:147 - Exception thrown when trying to delete bicycle entered: com.revature.bicycleshop.merchandise.Bicycles@2ea41516
+2021-02-17 03:52:20 INFO  EmployeeMethods:157 - Attempting to add the entered bicycles values from the system: com.revature.bicycleshop.merchandise.Bicycles@659499f1
+2021-02-17 03:52:20 INFO  EmployeeMethods:165 - Bicycles values were added successfully: com.revature.bicycleshop.merchandise.Bicycles@659499f1
+2021-02-17 10:35:27 INFO  BicycleShopController:59 - User is registering an account.
+2021-02-17 10:35:33 DEBUG BicycleShopController:627 - Submitting new Customer Information to the database...
+2021-02-17 10:35:33 DEBUG BicycleShopController:630 - com.revature.bicycleshop.users.Customer@7adda9cc
+2021-02-17 10:41:59 INFO  BicycleShopController:59 - User is registering an account.
+2021-02-17 10:42:10 DEBUG BicycleShopController:627 - Submitting new Customer Information to the database...
+2021-02-17 10:42:10 DEBUG BicycleShopController:630 - com.revature.bicycleshop.users.Customer@7adda9cc
+2021-02-17 10:42:18 INFO  BicycleShopController:185 - User logged out
+2021-02-17 10:42:24 INFO  BicycleShopController:69 - Employee is logging in.
+2021-02-17 10:42:30 DEBUG BicycleShopController:562 - Employee logged in successfully.
+2021-02-17 10:42:30 DEBUG BicycleShopController:563 - com.revature.bicycleshop.users.Employee@3ba9ad43
+2021-02-17 10:42:53 INFO  BicycleShopController:185 - User logged out
+2021-02-17 10:42:54 INFO  BicycleShopController:74 - Manager is logging in.
+2021-02-17 10:42:59 DEBUG BicycleShopController:531 - Manager logged in successfully.
+2021-02-17 10:42:59 DEBUG BicycleShopController:532 - com.revature.bicycleshop.users.Manager@49d904ec
+2021-02-17 10:43:28 INFO  EmployeeMethods:157 - Attempting to add the entered bicycles values from the system: com.revature.bicycleshop.merchandise.Bicycles@48e4374
+2021-02-17 10:43:28 INFO  EmployeeMethods:165 - Bicycles values were added successfully: com.revature.bicycleshop.merchandise.Bicycles@48e4374
+2021-02-17 10:44:46 DEBUG EmployeeMethods:147 - Exception thrown when trying to delete bicycle entered: com.revature.bicycleshop.merchandise.Bicycles@2ea41516
+2021-02-17 10:44:46 INFO  EmployeeMethods:157 - Attempting to add the entered bicycles values from the system: com.revature.bicycleshop.merchandise.Bicycles@659499f1
+2021-02-17 10:44:46 INFO  EmployeeMethods:165 - Bicycles values were added successfully: com.revature.bicycleshop.merchandise.Bicycles@659499f1

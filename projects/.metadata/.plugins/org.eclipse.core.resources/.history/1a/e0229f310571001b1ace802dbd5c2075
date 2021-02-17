@@ -1,0 +1,61 @@
+package com.revature.bicycleshop.methods;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.sql.SQLException;
+
+import org.junit.jupiter.api.Test;
+
+import com.revature.bicycleshop.exceptions.Exceptions;
+import com.revature.bicycleshop.merchandise.Bicycles;
+import com.revature.bicycleshop.users.Customer;
+import com.revature.bicycleshop.users.Employee;
+
+class EmployeeMethodsTest {
+
+//	@Test not testable due to my return time but verified it works by controller testing
+//	void AddCustomerTest() {
+//		boolean isGood = false;
+//		EmployeeMethods em = new EmployeeMethods();
+//		Bicycles bicycles = new Bicycles(true, 456, "lovebike");
+//		Customer customer = new Customer(4, "haley", "4271", 11, false, 4, 2, 1, 2021-02-17);
+//		if ((em.AddCustomer(customer)) {
+//			
+//			assertTrue(isGood);
+//		} 
+//	}	
+		
+	
+	@Test
+	void AddBiTest() throws Exception{
+		boolean isGood = false;
+		EmployeeMethods em = new EmployeeMethods();
+		Bicycles bicycles = new Bicycles(true, 456, "lovebike");
+		if (em.AddBi(bicycles) != null) {
+			assertTrue(isGood);
+		}
+	}
+	
+	@Test
+	void RemoveBiTest() throws Exception {
+		boolean isGood = false;
+		EmployeeMethods em = new EmployeeMethods();
+		Bicycles bicycles = new Bicycles(true, 456, "lovebike");
+		if(em.RemoveBi(bicycles) != null) {
+			assertTrue(isGood);
+		}
+	}
+	
+	@Test
+	void EmpLoginTest() throws Exception {
+		
+		boolean isGood = false;
+		Employee employee = new Employee(1, "haleym", "4271");
+		EmployeeMethods em = new EmployeeMethods();
+		if (em.EmpLogin() != null)
+		{
+			assertTrue(isGood);
+		}
+	}
+	
+}

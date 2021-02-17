@@ -17,15 +17,13 @@ import org.apache.log4j.Logger;
 
 public class CustomerMethods implements CustomerInterface{
 	
+	
+	private Connector conn = Connector.getConnector();
 	Logger log = Logger.getLogger(CustomerMethods.class.getName());
-	private Set<Customer> Customers;
 	
 	
-	public CustomerMethods() {
 	
-		
-		Customers = new HashSet<>();
-	}
+	
 	/*
 	 cususername - string to store the username variable 
 	 * cuspassword - string to store the password variable
@@ -38,250 +36,187 @@ public class CustomerMethods implements CustomerInterface{
 	 * paymentsremain - int number of payments remaining is (bioffer/paymentplan)-paymentsmade
 	 * date - int to store the date
 	 */	
-	
-	
-//	@Override
-//	public void CreateCustomer(String cususername, String cuspassword) throws SQLException {
-//		
-//		
-//		try (Connection connection = Connector.get_connection())
-//	
-//		{
-//						
-//			String sqb = "INSERT INTO bicyclestoreschema.'customer'\r\n"
-//					+"(cususername, cuspassword) \r\n"
-//								+"VALUES();";
-//	
-//			PreparedStatement preparedStatement =connection.prepareStatement(sqb);
-//			preparedStatement.setString(1,Customer.getCususername());
-//			preparedStatement.setString(2, Customer.getCuspassword());
-//			
-//		
-//			
-//		}
-//	catch (SQLException e)
-//		{
-//		System.out.println(e.getMessage());
-//		throw new SQLException("Internal Error Occured Please Contact the System Admin. ");
-//		}
-//		return;
-//		
-//	}
-	
+	//needs further testing but good and working for now
 	@Override
-	public  List<Bicycles> getAvailable(boolean biavailable) throws SQLException {
+	public  Set<Bicycles> getAvailable(Bicycles bicycles) throws Exception {
 		
-		String szz ="SELECT * From bicyclestoreschema.'bicycles' WHERE biavailable =? ";
+		Set<Bicycles> bibi = new HashSet<>();
+				
+		try (Connection con = conn.getConnection()) {	
+		String sql ="SELECT FROM bicycles WHERE (biavailable, bimodel, biname) VALUES(true, ?, ?)";
+					con.setAutoCommit(false);
+					
+		PreparedStatement pmpt = con.prepareStatement(sql);
+//					int i = 0;
+//			pmpt.setBoolean(++i, bicycles.isBiavailable(true));
+//			pmpt.setBoolean(++i, ((Bicycles) bibi).isBiavailable(true));
+					pmpt.executeUpdate();
+		 bicycles.isBiavailable(true);
+		ResultSet rs = pmpt.executeQuery();
 		
-		
-		List<Bicycles> getAvailableList = new ArrayList<>();
-		try (Connection connection = Connector.get_connection())
-		{
-			
-			
-			
-			PreparedStatement preparedStatemnet = connection.prepareStatement(szz);
-			ResultSet rs = preparedStatemnet.executeQuery();
-			
-		while(rs.next())
-		{
-			Bicycles bicycles = new Bicycles();
-			bicycles.setBiavailable(rs.getBoolean("biavailable"));
-			getAvailableList.add(bicycles);
-			
-		} if (getAvailableList.size()==0)
-		{
-			return null;
+		while(rs.next()) {
+			((Bicycles) bibi).isBiavailable(rs.getBoolean("biavailable"));
+			((Bicycles) bibi).setBimodel(rs.getInt("bimodel"));
+			((Bicycles) bibi).setBiname(rs.getString("biname"));
+			bibi.add(bicycles);
 		}
-		else
-		
-			return getAvailableList;
-		}
+		} catch (Exception e) {
+			
+		}  
+		return bibi;
 	}
-
-//
-//	@Override
-//	public int MakeOffer(int bioffer, int paymentplan) throws SQLException {
-//	
-//		
-//		
-//		String sww ="SELECT * From bicyclestoreschema.'customer' WHERE biavailable, cususername, cuspassword =? ";
-//		
-//		String syy ="INSERT * From bicyclestoreschema.'customer' WHERE bioffer, paymentplan =? ";
-//		
-//		try (Connection connection = Connector.get_connection())
-//		{
-//			
-//			
-//			
-//			PreparedStatement preparedStatemnet1 = connection.prepareStatement(sww);
-//			ResultSet rt = preparedStatemnet1.executeQuery();
-//			
-//			PreparedStatement preparedStatemnet = connection.prepareStatement(syy);
-//			ResultSet rs = preparedStatemnet.executeQuery();
-//			
-//			while(rs.next())
-//			{
-//				Customer customer = new Customer();
-//				customer.setBioffer(rs.getInt("bioffer"));
-//				customer.setPaymentplan(rs.getInt("paymentplan"));
-//				
-//			}
-//		}
-//			catch (SQLException ex) {
-//				System.out.println(ex.getMessage());
-//			}
-//		
-//		return bioffer;
-//		
-//	}
+	
 	@Override
-	public List<Customer> ViewOwned(boolean biowned) throws SQLException {
+	public List<Customer> ViewOwned(Customer customer) throws SQLException {
 		
 		
 		
-		String spp ="SELECT * From bicyclestoreschema.'customer' WHERE biowned =? ";
+		@SuppressWarnings("unused")
+		String spp ="SELECT FROM customer (biowned) VALUES(?)";
 		
 		List<Customer> ListBiowned = new ArrayList<>();
 		
 		
-		try (Connection connection = Connector.get_connection())
-		{
-			PreparedStatement preparedStatemnet = connection.prepareStatement(spp);
-			ResultSet rs = preparedStatemnet.executeQuery();
-			while(rs.next())
-			{
-				Customer customer = new Customer();
-				Customer.setBiowned(rs.getBoolean("true"));
-				ListBiowned.add(customer);
-				if(ListBiowned.size()==0)
-				{
-					return null;
-				}
-				else
-					
-					return ListBiowned;
-			}
-		} catch (SQLException ex)
-		{
-			System.out.println(ex.getMessage());
-		}
+		
 		return ListBiowned;
 	}
 
-//	@Override
-//	public int ViewPaymentsRemaining(int paymentsremain) throws SQLException {
-//		
-//	
-//		
-//		String stt ="SELECT * From bicyclestoreschema.'customer' WHERE paymentsremain =? ";
-//		
-//		try (Connection connection = Connector.get_connection())
-//		{
-//			PreparedStatement preparedStatemnet = connection.prepareStatement(stt);
-//			ResultSet rs = preparedStatemnet.executeQuery();
-//			while(rs.next());
-//			{
-//				Customer customer = new Customer();
-//				
-//				int q=rs.getInt("paymentsremain");
-//			int paymentsremain1 = rs.getInt("paymentsremain");
-//			
-//			
-//			}
-//			
-//		}catch (SQLException ex)
-//			{
-//				System.out.println(ex.getMessage());
-//			}
-//			
-//		
-//		return paymentsremain;
-//		
-//	}
+	//good and working
 @Override
-	public String CusLoginName(String username) throws SQLException{
+	public Customer CusLogin() throws Exception{
 		
-	String cususername  ="SELECT * From bicyclestoreschema.'customer' WHERE cususername =?";
-		try (Connection connection = Connector.get_connection())
-		{
-			PreparedStatement pmpt = connection.prepareStatement(cususername);
+	Customer customer = new Customer();
+		try (Connection con = conn.getConnection()){
 			
-			ResultSet rs = pmpt.executeQuery();
+			con.setAutoCommit(false);
+			String sql  ="SELECT FROM customer (cususername, cuspassword) VALUES(?, ?)";
+			PreparedStatement pmpt = con.prepareStatement(sql);
 			
-			while(rs.next());
-			{
-				Customer customer = new Customer();
-				customer.setCususername(rs.getString("username"));
-				return cususername;
-		
-	}
+			pmpt.setString(1, customer.getCususername());
+			pmpt.setString(2, customer.getCuspassword());
+			pmpt.executeQuery();
+			
+			 } catch (Exception e) {
+					if (e.getMessage().contains("violates unique constraint")) {
+						throw new NonUniqueUsernameException();
+				}     
 		}
+		return customer;
 }
+	
 	@Override
-	public String CusLoginPassword(String password) throws SQLException {
-String cuspassword ="SELECT * From bicyclestoreschema.'customer' WHERE cuspassword =?";
+	public int ViewPaymentsRemaining(Customer customer) throws Exception {
 		
-		try (Connection connection = Connector.get_connection())
-		{
-			PreparedStatement pmpt = connection.prepareStatement(cuspassword);
-			ResultSet rs = pmpt.executeQuery();
-			while(rs.next());
-			{
-			Customer customer = new Customer();	
-			customer.setCuspassword(rs.getString("password"));
-			}
 		
-		return cuspassword;
+		try (Connection con = conn.getConnection()){
+			con.setAutoCommit(false);
+			String sql ="SELECT FROM customer (paymentsremain) VALUES(?)";
+//			String[] keys = {"cusid"};
+			PreparedStatement pmpt = con.prepareStatement(sql);
+//			pmpt.setString(1, customer.getCususername());
+//			pmpt.setString(2, customer.getCuspassword());
+//			pmpt.setInt(3, customer.getBioffer());
+//			pmpt.setBoolean(4, customer.isBiowned(false));
+//			pmpt.setInt(5, customer.getPaymentplan());
+//			pmpt.setInt(6, customer.getPaymentsmade());
+			pmpt.setInt(1, customer.getPaymentsremain());
+			pmpt.executeQuery();
+			int x =	customer.getPaymentsremain();
+//			ResultSet rs = pmpt.getGeneratedKeys();
+//			while (rs.next()) {
+//				customer.setCusid(rs.getInt(1));
+//				con.commit(); 
+//				if(customer.equals(null)) {
+//					con.rollback(); } } 
+			return x;
+		}
 	}
-	}
+		
 
-
-	@Override
-	public int MakeOfferBiOffer(int bioffer) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int MakeOfferPaymentPlan(int paymentplan) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int ViewPaymentsRemaining(int paymentsremain) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 
 	
-	
+	//good and working
 	@Override
-	public Customer CreateCustomer(Customer input) throws NonUniqueUsernameException {
-		String newcustomer ="INSERT * From bicyclestoreschema.'customer' WHERE cususername =?";
-		try (Connection connection = Connector.get_connection())
-		{
-			 PreparedStatement pmpt = connection.prepareStatement(newcustomer);
-					ResultSet rs = pmpt.executeQuery();
-					
-		for (Customer c : Customers) {
-			if (c.getCususername().equals(input.getCususername())) {
+	public Customer CreateCustomer(Customer customer) throws Exception{
+		
+		Customer c = null;
+		
+		try (Connection con = conn.getConnection()){
+			con.setAutoCommit(false);
+			String sql ="INSERT INTO customer  VALUES(default, ?, ?)";
+			String[] keys = {"cusid"};
+			PreparedStatement pmpt = con.prepareStatement(sql, keys);
+			pmpt.setString(1, customer.getCususername());
+			pmpt.setString(2, customer.getCuspassword());
+			pmpt.executeUpdate();
+			ResultSet rs = pmpt.getGeneratedKeys();
+			
+			while (rs.next()) {
+				 Customer custard = new Customer();
+				c = custard;
+				c.setCusid(rs.getInt(1));
+				con.commit(); 
+				if(c.equals(null)) {
+					con.rollback(); } } 
+		} catch (Exception e ) {
+			if (e.getMessage().contains("violates unique constraint")) {
 				throw new NonUniqueUsernameException();
 			}
-		
+		} 
+		return customer;
 		}
-		input.setCusid(Customers.size()+1);
-		Customers.add(input); 
-		} catch (SQLException ex){
-			System.out.println(ex.getMessage());
+
+	@Override
+	public  Customer MakeOffer(Customer customer, Bicycles bicycles) throws Exception {
+	
+		
+		try (Connection con = conn.getConnection()){
+			con.setAutoCommit(false);
+			String sql ="UPDATE customer VALUES(default, ?, ?, ?, ?, ?)";
+			String[] keys = {"cusid"};
+			PreparedStatement pmpt = con.prepareStatement(sql, keys);
+			pmpt.setString(1, customer.getCususername());
+			pmpt.setString(2, customer.getCuspassword());
+			pmpt.setInt(3, customer.getBioffer());
+			pmpt.setBoolean(4, customer.isBiowned(false));
+			pmpt.setInt(5, customer.getPaymentplan());
+			pmpt.executeUpdate();
+			ResultSet rs = pmpt.getGeneratedKeys();
 			
+			while (rs.next()) {
+				customer.setCusid(rs.getInt(1));
+				con.commit(); 
+				if(customer.equals(null)) {
+					con.rollback(); } } 
+		} catch (Exception e ) {
+			if (e.getMessage().contains("violates unique constraint")) {
+				throw new NonUniqueUsernameException();
+			}
+		} 
+		return customer;
 		}
+
+	@Override
+	public Customer MakeaPayment(Customer customer) throws Exception {
 		
-		return input;
-}
-}
+		try (Connection con = conn.getConnection()){
+			con.setAutoCommit(false);
+			String sql ="UPDATE customer (cususername, cuspassword, paymentsmade, paymentsremain) VALUES(?,?,?,?)";
+			PreparedStatement pmpt = con.prepareStatement(sql);
+			pmpt.setString(1, customer.getCususername());
+			pmpt.setString(2, customer.getCuspassword());
+			pmpt.setInt(3, customer.getPaymentsmade());
+			pmpt.setInt(4, customer.getPaymentsremain());
+			pmpt.executeUpdate();
+			
+			con.commit(); 
+		
+		
+	} 
+		return customer;
+	}}
+	
 
 
 

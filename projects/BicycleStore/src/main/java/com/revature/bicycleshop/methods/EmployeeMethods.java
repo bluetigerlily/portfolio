@@ -4,164 +4,192 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Scanner;
-import java.sql.*;
-
+import java.util.Set;
 import org.apache.log4j.Logger;
 
 import com.revature.bicycleshop.connector.Connector;
+import com.revature.bicycleshop.exceptions.BiOfferAcceptedandBicycleOwnedException;
+import com.revature.bicycleshop.exceptions.NonUniqueUsernameException;
 import com.revature.bicycleshop.interfaces.EmployeeInterface;
 import com.revature.bicycleshop.merchandise.Bicycles;
 import com.revature.bicycleshop.users.Customer;
 import com.revature.bicycleshop.users.Employee;
 
-public class EmployeeMethods<bicycles> implements EmployeeInterface {
+public class EmployeeMethods implements EmployeeInterface {
 
-	
+	private Connector conn = Connector.getConnector();
 	Logger log = Logger.getLogger(EmployeeMethods.class.getName());
 	
 
-	
 
-	@Override
-	public void AddBi(List<Employee> List) throws SQLException {
-	
+
+	@Override //working on still
+	public Set<Customer> ViewAllPayments(Customer customer) throws Exception {
 		
-		String sii ="INSERT * From bicyclestoreschema. INTO 'employee'(bimodel) "
-				+ "VALUES(?)";
-		
+		Set<Customer> paymentsmadeset = new HashSet<Customer>();
 		
 		
 		
-		try (Connection connection = Connector.get_connection())
-		{	
-				
+		return paymentsmadeset;
+	}
+
+	@Override //working on still
+	public Set<Customer> ViewPending() throws BiOfferAcceptedandBicycleOwnedException {
+		
+try (Connection con = conn.getConnection()){
 			
-		PreparedStatement preparedStatemnet = connection.prepareStatement(sii);
-		ResultSet rs = preparedStatemnet.executeQuery();
-			for(Employee employee: List) 
-			
-			{
-			Scanner ss = new Scanner(System.in);
+			con.setAutoCommit(false);
+		Set<Customer> customers = new HashSet<Customer>();
+		Set<Customer> apending = new HashSet<>();
 		
-				
-				String s = ss.nextLine(); 
-				
-				System.out.println("Please Enter the model number of the bike you would like to add to the system");
-				preparedStatemnet.setString(1, s);
-				
-				
-					
-			
-						
-			
+		for (Customer customer : customers) {
+			if ((((customer.getBioffer()))!=(null))) {
+				apending.add(customer); }
+			if (((customer.getPaymentplan())) != null){
+				apending.add(customer);
 			}
+			return apending;
+		}
+		
+} catch (Exception e) {
+	
+	e.printStackTrace();
+}
+return null;
+			
+		
+	
+	}
+
+
+
+	@Override //should work in theory havnt tested yet
+	public void EditExistingBiycles(Integer bimodel, boolean biavailable, String biname) throws NonUniqueUsernameException {
 		
 		
-	}catch (SQLException ex)
-		{
-		System.out.println(ex.getMessage());
+		try (Connection con = conn.getConnection()){
+			
+			con.setAutoCommit(false);
+			String sql ="UPDATE bicycles  VALUES(?, ?, ?)";
+			String[] keys = {"bimodel"};
+			PreparedStatement pmpt = con.prepareStatement(sql, keys);
+			pmpt.setInt(1, bimodel);
+			pmpt.setBoolean(2, biavailable);
+			pmpt.setString(2, biname);
+			pmpt.executeUpdate();
+			ResultSet rs = pmpt.getGeneratedKeys();
+			
+			while (rs.next()) {
+				 Bicycles bibi = new Bicycles();
+				con.commit(); 
+				if(bibi.equals(null)) {
+					con.rollback(); } } 
+		} catch (Exception e ) {
+			if (e.getMessage().contains("violates unique constraint")) {
+				throw new NonUniqueUsernameException();
+			}
+		} 
+		return;
+		}
+		
+	
+
+
+	@Override //works 
+	public void AddCustomer(Customer customer) throws Exception {
+		
+		Customer c = null;
+		
+		try (Connection con = conn.getConnection()){
+			con.setAutoCommit(false);
+			String sql ="INSERT INTO customer  VALUES(default, ?, ?)";
+			String[] keys = {"cusid"};
+			PreparedStatement pmpt = con.prepareStatement(sql, keys);
+			pmpt.setString(1, customer.getCususername());
+			pmpt.setString(2, customer.getCuspassword());
+			pmpt.executeUpdate();
+			ResultSet rs = pmpt.getGeneratedKeys();
+			
+			while (rs.next()) {
+				 Customer custard = new Customer();
+				c = custard;
+				c.setCusid(rs.getInt(1));
+				con.commit(); 
+				if(c.equals(null)) {
+					con.rollback(); } } 
+		} catch (Exception e ) {
+			if (e.getMessage().contains("violates unique constraint")) {
+				throw new NonUniqueUsernameException();
+			} 
+		} 
+		return;
+		}
+
+	@Override //works 
+	public Bicycles RemoveBi(Bicycles bicycles) throws SQLException {
+		
+		
+		try (Connection con = conn.getConnection()){
+			con.setAutoCommit(false);
+			String sql ="DELETE FROM bicycles VALUES(?, ?, ?)";
+			PreparedStatement pmpt = con.prepareStatement(sql);
+			pmpt.setBoolean(1, bicycles.isBiavailable(true));
+			pmpt.setInt(2, bicycles.getBimodel());
+			pmpt.setString(3, bicycles.getBiname());
+			pmpt.executeUpdate(); 
+			if(bicycles.equals(null)) {
+				con.commit(); }  
+			else{
+				con.rollback();
+			}} catch (Exception e) {
+				e.printStackTrace();
+				log.debug("Exception thrown when trying to delete bicycle entered: "+bicycles.toString());
+			}
+		return bicycles;
+	}
+
+	@Override //works 
+	public Bicycles AddBi(Bicycles bicycles) throws Exception {
+		
+		try (Connection con = conn.getConnection()){
+			con.setAutoCommit(false);
+			log.info("Attempting to add the entered bicycles values from the system: "+bicycles.toString());
+			String sql ="INSERT INTO bicycles  VALUES(?, ?, ?)";
+			PreparedStatement pmpt = con.prepareStatement(sql);
+			pmpt.setBoolean(1, bicycles.isBiavailable(true));
+			pmpt.setInt(2, bicycles.getBimodel());
+			pmpt.setString(3, bicycles.getBiname());
+			pmpt.executeUpdate();
+				con.commit();
+				log.info("Bicycles values were added successfully: "+bicycles.toString());
+			}	catch(Exception e ) {
+				log.debug("Exception thrown when trying to add: "+bicycles.toString());
+				e.printStackTrace();
+	}
+		return bicycles;
 		}
 	
+
+	@Override //works 
+	public Employee EmpLogin() throws Exception {
 	
+		Employee employee = new Employee();
+	try (Connection con = conn.getConnection()){
 
+		con.setAutoCommit(false);
+		String sql  ="SELECT FROM employee (empusername, emppassword) VALUES(?, ?)";
+		PreparedStatement pmpt = con.prepareStatement(sql);
+		
+		pmpt.setString(1, employee.getEmpusername());
+		pmpt.setString(2, employee.getEmppassword());
+		pmpt.executeQuery();
+		 } catch (Exception e) {
+				if (e.getMessage().contains("violates unique constraint")) {
+					throw new NonUniqueUsernameException();
+			}     
+	}
+	return employee;
 }
-
-
-	@Override
-	public List<Customer> ViewAllPayments(Integer paymentsmade) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Customer> ViewPending(Integer bioffer) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String EmpLoginPass(String password) throws SQLException {
-		String emppassword  ="SELECT * From bicyclestoreschema.'employee' WHERE empusername =?";
-		try (Connection connection = Connector.get_connection())
-		{
-			PreparedStatement pmpt = connection.prepareStatement(emppassword);
-			
-			ResultSet rs = pmpt.executeQuery();
-			
-			while(rs.next());
-			{
-				Employee.setEmppassword(rs.getString("password"));
-				return emppassword;
-		
-		}
-}
-	}
-
-	@Override
-	public void CreateCustomerEmpname(String empusername) throws SQLException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void CreateCustomerEmpPass(String emppassword) throws SQLException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void AddBiavailable(boolean biavailable) throws SQLException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void EditExistingBimodel(Integer bimodel) throws SQLException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void EditExistingBiavailable(boolean biavailable) throws SQLException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void EditExistingBiavailable(String biname) throws SQLException {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public String EmpLoginName(String username) throws SQLException {
-		
-		String empusername  ="SELECT * From bicyclestoreschema.'employee' WHERE empusername =?";
-		try (Connection connection = Connector.get_connection())
-		{
-			PreparedStatement pmpt = connection.prepareStatement(empusername);
-			
-			ResultSet rs = pmpt.executeQuery();
-			
-			while(rs.next());
-			{
-				Employee.setEmpusername(rs.getString("username"));
-				return empusername;
-		
-		}
-}
-	}
-
-	@Override
-	public void RemoveBi(List<Employee> List) throws SQLException {
-		// TODO Auto-generated method stub
-		
-	}
-
-
+	
 }

@@ -1,29 +1,7 @@
 package com.revature.bicycleshop.users;
 
-import java.sql.DriverManager;
-import java.sql.NClob;
-import java.sql.PreparedStatement;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.SQLException;
-import java.sql.SQLWarning;
-import java.sql.SQLXML;
-import java.sql.Savepoint;
-import java.sql.Statement;
-import java.sql.Struct;
-import java.sql.Wrapper;
-import java.util.*;
-import java.util.concurrent.Executor;
-import com.revature.bicycleshop.interfaces.*;
-import java.sql.Array;
-import java.sql.Blob;
-import java.sql.CallableStatement;
-import java.sql.Clob;
-import java.sql.ResultSet;
-import java.sql.SQLClientInfoException;
 
-
-public class Manager {
+public class Manager extends User{
 	
 	
 	
@@ -32,13 +10,18 @@ public class Manager {
 	private static String manpassword;
 	private static Integer sales;
 	private static Integer missedsales;
+	@SuppressWarnings("unused")
+	private static String empusername;
+	@SuppressWarnings("unused")
+	private static String emppassword;
+	private static Integer empid;
 	
 	
 	
 	//getters and setters
 	
 	
-	public Manager(Integer manid, String manusername, String manpassword, Integer sales, Integer missedsales)
+	public Manager(Integer manid, String manusername, String manpassword, Integer sales, Integer missedsales, String empusername, String emppassword, Integer empid)
 	{
 		super();
 		Manager.setManid(manid);
@@ -46,7 +29,11 @@ public class Manager {
 		Manager.manpassword = manpassword;
 		Manager.sales = sales;
 		Manager.missedsales = missedsales;
+		Manager.emppassword = emppassword;
+		Manager.empusername = empusername;
+		Manager.empid = empid;
 	}
+	
 	
 	public Manager() {
 		
@@ -54,7 +41,7 @@ public class Manager {
 	
 	
 
-	public static String getManpassword() {
+	public String getManpassword() {
 		return manpassword;
 	}
 	public void setManpassword(String manpassword) {
@@ -89,28 +76,8 @@ public class Manager {
 
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//have to make these
-	
-	
-	
-	
-	
 
-	public void setEmpusername(String nextLine) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void setEmployee(Manager createEmployee) {
+	public void setEmployee(Employee CreateEmployee) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -125,9 +92,15 @@ public class Manager {
 		return null;
 	}
 
-	public void setEmppassword(String nextLine) {
-		// TODO Auto-generated method stub
-		
+	public void setEmpusername(String empusername) {
+		Manager.empusername = empusername;
+	}
+	public void setEmppassword(String emppassword) {
+		Manager.emppassword = emppassword;
+	}
+
+	public static Integer getEmpid() {
+		return empid;
 	}
 
 	
