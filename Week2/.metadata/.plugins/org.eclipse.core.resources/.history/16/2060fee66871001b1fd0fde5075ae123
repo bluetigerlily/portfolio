@@ -1,0 +1,17 @@
+package com.revature.servlets;
+
+import javax.servlet.http.HttpServlet;
+import com.revature.beans.bean;
+
+public class BeanServlet  extends HttpServlet{
+	
+	@Override
+	protected void doGet (HttpServletRequest req, HttpServletResponse resp){
+		throws ServletException, IOException {
+			Bean bean = new Bean();
+			
+			resp.getWriter().write()String;
+		}
+	}
+
+}

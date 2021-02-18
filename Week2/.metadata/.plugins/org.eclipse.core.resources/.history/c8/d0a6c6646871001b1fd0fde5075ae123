@@ -1,0 +1,14 @@
+package com.revature.beans;
+
+public class Bean {
+private String name;
+private Double weight;
+private Integer flavor;
+public Bean() {
+	name = "Bean";
+	weight = 1.0;
+	flavor = 10;
+}
+
+
+}

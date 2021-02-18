@@ -1,0 +1,20 @@
+package com.revature.beans;
+
+public class Bean {
+private String name;
+private Double weight;
+private Integer flavor;
+public Bean() {
+	setName("Bean");
+	weight = 1.0;
+	flavor = 10;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+
+
+}
