@@ -43,16 +43,14 @@ public class CustomerMethods implements CustomerInterface{
 		Set<Bicycles> bibi = new HashSet<>();
 				
 		try (Connection con = conn.getConnection()) {	
-		String sql ="SELECT FROM bicycles WHERE (biavailable, bimodel, biname) VALUES(true, ?, ?)";
+		String sql ="SELECT FROM bicycles WHERE (biavailable, bimodel, biname) VALUES(?, ?, ?)";
 					con.setAutoCommit(false);
 					
 		PreparedStatement pmpt = con.prepareStatement(sql);
-//					int i = 0;
-//			pmpt.setBoolean(++i, bicycles.isBiavailable(true));
-//			pmpt.setBoolean(++i, ((Bicycles) bibi).isBiavailable(true));
-					pmpt.executeUpdate();
-		 bicycles.isBiavailable(true);
-		ResultSet rs = pmpt.executeQuery();
+		pmpt.setBoolean(1, bicycles.isBiavailable(true));
+		pmpt.setInt(2, bicycles.getBimodel());
+	    pmpt.setString(3, bicycles.getBiname());
+					ResultSet rs = pmpt.executeQuery();
 		
 		while(rs.next()) {
 			((Bicycles) bibi).isBiavailable(rs.getBoolean("biavailable"));
@@ -92,7 +90,7 @@ public class CustomerMethods implements CustomerInterface{
 			String sql  ="SELECT FROM customer (cususername, cuspassword) VALUES(?, ?)";
 			PreparedStatement pmpt = con.prepareStatement(sql);
 			
-			pmpt.setString(1, customer.getCususername());
+			pmpt.setNString(1, customer.getCususername());
 			pmpt.setString(2, customer.getCuspassword());
 			pmpt.executeQuery();
 			
@@ -110,16 +108,15 @@ public class CustomerMethods implements CustomerInterface{
 		
 		try (Connection con = conn.getConnection()){
 			con.setAutoCommit(false);
-			String sql ="SELECT FROM customer (paymentsremain) VALUES(?)";
-//			String[] keys = {"cusid"};
+			String sql ="SELECT FROM customer (cususername, cuspassword, bioffer, biowned, paymentplan, paymentsmade, paymentsremain) VALUES(?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement pmpt = con.prepareStatement(sql);
-//			pmpt.setString(1, customer.getCususername());
-//			pmpt.setString(2, customer.getCuspassword());
-//			pmpt.setInt(3, customer.getBioffer());
-//			pmpt.setBoolean(4, customer.isBiowned(false));
-//			pmpt.setInt(5, customer.getPaymentplan());
-//			pmpt.setInt(6, customer.getPaymentsmade());
-			pmpt.setInt(1, customer.getPaymentsremain());
+			pmpt.setString(1, customer.getCususername());
+			pmpt.setString(2, customer.getCuspassword());
+			pmpt.setInt(3, customer.getBioffer());
+			pmpt.setBoolean(4, customer.isBiowned(false));
+			pmpt.setInt(5, customer.getPaymentplan());
+			pmpt.setInt(6, customer.getPaymentsmade());
+			pmpt.setInt(7, customer.getPaymentsremain());
 			pmpt.executeQuery();
 			int x =	customer.getPaymentsremain();
 //			ResultSet rs = pmpt.getGeneratedKeys();

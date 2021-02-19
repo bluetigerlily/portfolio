@@ -59,6 +59,11 @@ public class Bicycles {
 		return Bicycles.biname = biname;
 		
 	}
+
+	public boolean isBiavailable() {
+		// TODO Auto-generated method stub
+		return biavailable;
+	}
 	
 	
 	

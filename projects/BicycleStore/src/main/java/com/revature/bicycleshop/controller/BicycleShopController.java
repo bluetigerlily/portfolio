@@ -15,7 +15,6 @@ import com.revature.bicycleshop.users.Employee;
 import com.revature.bicycleshop.users.Manager;
 import com.revature.bicycleshop.users.User;
 import java.util.Scanner;
-import java.util.Set;
 
 
 public class BicycleShopController 
@@ -90,6 +89,7 @@ public class BicycleShopController
 			//view command to view paymentsremain - weekly payments remaining would be (bioffer/paymentplan)-paymentsmade
 		
 		Bicycles bicycles = new Bicycles();
+		Bicycles bicyclesold = new Bicycles();
 		 
 			menuLoop: while (true) {
 			
@@ -161,7 +161,7 @@ public class BicycleShopController
 					break;
 				case "10":
 					//edit the existing bicycles in stock
-					employee = EditExisting(employee);
+					EditExisting(bicycles, bicyclesold);
 					break;
 				case "11":
 						//make a new employee account
@@ -173,7 +173,7 @@ public class BicycleShopController
 					break;
 				case "13":
 						//fire an employee
-					manager = changeEmployStatus(manager);
+					changeEmployStatus(employee);
 					break;
 				case "14":
 					 //view missed potential sales
@@ -205,41 +205,203 @@ public class BicycleShopController
 			 
 		
 
-
+//was never one to begin with just ran out of time tbh
 	private static Manager getMissedSales(Manager manager) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
-	private static Manager changeEmployStatus(Manager manager) {
-		// TODO Auto-generated method stub
-		return null;
+	private static Employee changeEmployStatus(Employee employee) throws Exception {
+		
+		while (true) {
+			System.out.println("Press 1 if you would like to change the employment status of an employee");
+			String input = (scan.nextLine());
+			if (("1".equals(input))) {
+				System.out.println("Please enter the employee's Employee Username");
+				String empusername = (scan.nextLine());
+				employee.setEmpusername(empusername);
+				System.out.println("Please enter the employee's Employee Password");
+				String emppassword = (scan.nextLine());
+				employee.setEmppassword(emppassword);
+				System.out.println("Please verify the employee's current employment status by typing true if currently employeed and false if unemployed");
+				String employstatusstring = (scan.nextLine());
+				if (("true".equals(employstatusstring))) {
+					if (employstatusstring != null) {
+						Boolean employstatus = Boolean.parseBoolean(employstatusstring);
+						employee.setEmploystatus(employstatus);
+					}
+				if(("false".equals(employstatusstring))) {
+					System.out.println("The employee "+empusername+" is already unemployed by the company would you like to rehire them? Please type yes or no");				
+					String rehirestring = (scan.nextLine());
+				
+				if(("yes").equals(rehirestring)) {
+					if (rehirestring != null) {
+						rehirestring = "true";
+						Boolean employstatus = Boolean.parseBoolean(rehirestring);
+						employee.setEmploystatus(employstatus);
+					}
+				}
+				}
+				}
+				if(managerInterface.changeEmployStatus(employee) == employee.isEmploystatus(true)) {
+					System.out.println("The employee is still employed by the company");
+					Log.debug(employee);
+				}
+				if(managerInterface.changeEmployStatus(employee) == employee.isEmploystatus(false)) {
+					System.out.println("The employee is unemployed by the company");
+					Log.debug(employee);
+				}
+				System.out.println("Press 1 to remove another or press anything else to return to the main menu have a wonderful day!");		 
+					String input1 = scan.nextLine();
+					if (!("1".equals(input1))) {
+				return null;  
+			
+			}
+			}
+			
+					
+			return employee;
+		
 	}
-
-
+	}
+//ran out of time for this extra bonus one as well
 	private static Manager getSales(Manager manager) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
-	private static Employee EditExisting(Employee employee) {
+	private static Bicycles EditExisting(Bicycles bicycles, Bicycles bicyclesold) throws NonUniqueUsernameException {
+		while (true) {
+			
+
+			System.out.println("Press 1 if you would like to edit an existing bicycles stored data");
+			String input = (scan.nextLine());
+			if (("1".equals(input))) {
+			System.out.println("Please enter the bicycles exisiting Model Number: ");
+			String modelnumber = (scan.nextLine());
+			if(modelnumber != null) {
+				Integer bimodelold = Integer.parseInt(modelnumber);
+				bicyclesold.setBimodel(bimodelold);
+			}	
+			System.out.println("Please enter the bicycles new Model Number: ");
+			String newmodelnumber = (scan.nextLine());
+			if(newmodelnumber != null) {
+				Integer bimodel = Integer.parseInt(newmodelnumber);
+				bicycles.setBimodel(bimodel);
+			}
+			
+			System.out.println("Please enter the bicycles old Name: ");
+			String binameold = (scan.nextLine());
+			if(binameold != null) {
+			bicyclesold.setBiname(binameold);
+			}
+			System.out.println("Please enter the bicycles new Name: ");
+			String newbiname = (scan.nextLine());
+			if(newbiname != null) {
+				bicycles.setBiname(newbiname);
+			}
+			System.out.println("Please enter if the bicycle availability originally : (true or false) ");
+			String biavailablity = (scan.nextLine());
+			if(biavailablity != null) {
+				Boolean biavailableold = Boolean.parseBoolean(biavailablity);
+				bicyclesold.setBiavailable(biavailableold);
+			}
+			System.out.println("Please enter the bicycles new availability: (true or false) ");
+			String newbiavailablity = (scan.nextLine());
+			if(newbiavailablity != null) {
+				Boolean newbiavailable = Boolean.parseBoolean(newbiavailablity);
+				bicycles.setBiavailable(newbiavailable);
+			}
+			if((emplopyeeInterface.EditExisting(bicycles, bicyclesold) == null))	{
+				Log.debug("The users bicycles were not updated in the system something went wrong");  
+			System.out.println("I'm sorry, your bicycles were not updated in our system please try again!");
+			} else if(emplopyeeInterface.EditExisting(bicycles, bicyclesold) != null) {
+				Log.debug("The bicycles were updated in the system");  
+				System.out.println("Your bicycles were updated in the system Have a wonderful day!");
+			}
+			System.out.println("Press 1 to make changes to another employee's employment status or anything else to exit.  Have a wonderful day!");
+			} else {
+				}	String input1 = scan.nextLine();
+					if (!("1".equals(input1))) {
+				return bicycles; 
+				
+			}
+		}
+			 
+		}
 		
-		return null;
+
+			
+
+
+	private static void ViewPendingOffers() throws BiOfferAcceptedandBicycleOwnedException {
+
+		while (true) {
+			System.out.println("Press 1 to view all pending offers");
+			String input = (scan.nextLine());
+			if (("1".equals(input))) {
+				emplopyeeInterface.ViewPendingOffers();
+			}
+			
+		return;
+		}
 	}
 
 
-	private static Set<Customer> ViewPendingOffers() throws BiOfferAcceptedandBicycleOwnedException {
-
-		Set<Customer> apending = null;
-		return apending;
-	}
-
-
-	private static Set<Customer> ViewAllPayments(Customer customer) {
-		// TODO Auto-generated method stub
-		return null;
+	private static Customer ViewAllPayments(Customer customer) throws Exception {
+		
+while (true) {
+			System.out.println("Press 1 to view all payments");
+			String input = (scan.nextLine());
+			if (("1".equals(input))) {
+				System.out.println("Enter if the Customers username : ");
+				String cususername = (scan.nextLine());
+				if(!((null) == (cususername))){
+					customer.setCususername(cususername);
+				}
+				System.out.println("Enter the customers offer: ");
+				String offer =(scan.nextLine());
+				if(!((null) == (offer))){
+					Integer bioffer = Integer.parseInt(offer);
+					customer.setBioffer(bioffer);
+				}
+				System.out.println("Enter the paymentplan: ");
+				String paymentplans = (scan.nextLine());
+				if(!((null) == (paymentplans))){
+					int paymentplan = Integer.parseInt(paymentplans);
+					customer.setPaymentplan(paymentplan);
+				}				
+				System.out.println("Enter the paymentsremaining: ");
+				String paymentsremainings = (scan.nextLine());
+				if(!((null) == (paymentsremainings))){
+					int paymentsremain = Integer.parseInt(paymentsremainings);
+					customer.setPaymentplan(paymentsremain);
+				}	
+				System.out.println("Enter the paymentsmade: ");
+				String paymentsmades = (scan.nextLine());
+				if(!((null) == (paymentsmades))){
+					int paymentsmade = Integer.parseInt(paymentsmades);
+					customer.setPaymentplan(paymentsmade);
+				}
+		if(emplopyeeInterface.ViewAllPayments(customer) != null)
+		{
+			Log.debug("The list of all the payments for the customer has been generated");  
+		System.out.println("The list for all the payments for the customer has been generated, have a wonderful day!");
+		
+		} else if (emplopyeeInterface.ViewAllPayments(customer) == null ) {
+			System.out.println("I'm sorry something went wrong when generating your list of payments in our System please try again!");
+			Log.debug(customer);
+			}
+		System.out.println("Press 1 to make changes to another employee's employment status or anything else to exit.  Have a wonderful day!");
+			} else {
+				}	String input1 = scan.nextLine();
+					if (!("1".equals(input1))) {
+				return null;
+			}
+			return customer;
+			}
 	}
 
 //should work needs testing
@@ -271,10 +433,10 @@ public class BicycleShopController
 				if(emplopyeeInterface.RemoveBi(bicycles) != null) { 
 						Log.debug("The users bicycles were not removed from the system soomething went wrong");  }
 						System.out.println("I'm sorry, your bicycles were not removed from the system please try again!");
-					}	 else if (emplopyeeInterface.RemoveBi(bicycles) != null ) {
-				Log.debug("Your bicycle has been removed from the system have a wonderful day!");
+					}	 else if (emplopyeeInterface.RemoveBi(bicycles) == null ) {
+				System.out.println("Your bicycle has been removed from the system have a wonderful day!");
 				Log.debug(bicycles);
-				System.out.println("Press 1 to remove another or press anything else to return to the main menu have a wonderful day!");
+				System.out.println("Press 1 to make changes to another employee's employment status or anything else to exit.  Have a wonderful day!");
 						} else {
 							}	String input1 = scan.nextLine();
 								if (!("1".equals(input1))) {
@@ -311,8 +473,8 @@ public class BicycleShopController
 				if(emplopyeeInterface.AddBi(bicycles) == null) { 
 						Log.debug("The user entered no bicycles to input into the system");  }
 						System.out.println("I'm sorry, you did not enter any bicycles to add to the system please try again");
-					}	 else if (!((null) == emplopyeeInterface.AddBi(bicycles))) {
-				Log.debug("Your bicycle has been inputted into the system have a wonderful day!");
+					}	 else if (((null) != emplopyeeInterface.AddBi(bicycles))) {
+				System.out.println("Your bicycle has been inputted into the system have a wonderful day!");
 				Log.debug(bicycles);
 				System.out.println("Press 1 to input another or press anything else to return to the main menu have a wonderful day!");
 						} 	String input1 = scan.nextLine();
@@ -393,7 +555,7 @@ public class BicycleShopController
 	}
 	
 	
-//need to add joins on the biowns the customer data columns and the merchandise in the bicycle tables for this one to work
+//need to add joins on the biowns the customer data columns and the merchandise in the bicycle tables for this one to work as intended
 	
 	private static Customer ViewOwned(Customer customer) throws Exception {
 		

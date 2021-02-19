@@ -11,7 +11,7 @@ import com.revature.bicycleshop.users.Manager;
 public interface ManagerInterface {
 	
 	List<Customer> getSales(Integer bioffer) throws SQLException;
-	public void changeEmployStatus(boolean employstatus) throws SQLException;
+	public Employee changeEmployStatus(Employee employee) throws SQLException;
 	List<Customer> getMissedSales(Integer missedsales) throws SQLException;
 	Employee CreateEmployee(Employee employee) throws NonUniqueUsernameException;
 	public Manager ManLogin() throws Exception;

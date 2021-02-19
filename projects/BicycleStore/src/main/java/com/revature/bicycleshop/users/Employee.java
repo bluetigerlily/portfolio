@@ -3,7 +3,7 @@ package com.revature.bicycleshop.users;
 public class Employee extends Manager {
 	
 	private static Integer empid;
-	private static boolean bipending; //needs to be joined to bioffer in customer table
+	private static boolean bipending; 
 	private static String empusername;
 	private static String emppassword;
 	private static boolean employstatus;
@@ -74,11 +74,11 @@ public class Employee extends Manager {
 		Employee.empusername = empusername;
 	}
 
-	public static boolean isEmploystatus() {
+	public boolean isEmploystatus() {
 		return employstatus;
 	}
 
-	public static void setEmploystatus(boolean employstatus) {
+	public void setEmploystatus(boolean employstatus) {
 		Employee.employstatus = employstatus;
 	}
 	public static Integer getEmpid() {
@@ -111,6 +111,10 @@ public class Employee extends Manager {
 	
 	public Integer getBimodel() {
 		return bimodel;
+	}
+	public Employee isEmploystatus(boolean b) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

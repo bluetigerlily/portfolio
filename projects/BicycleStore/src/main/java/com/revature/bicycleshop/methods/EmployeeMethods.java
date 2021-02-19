@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashSet;
-import java.util.Set;
 import org.apache.log4j.Logger;
 
 import com.revature.bicycleshop.connector.Connector;
@@ -25,72 +23,102 @@ public class EmployeeMethods implements EmployeeInterface {
 
 
 	@Override //working on still
-	public Set<Customer> ViewAllPayments(Customer customer) throws Exception {
+	public Customer ViewAllPayments(Customer customer) throws Exception {
 		
-		Set<Customer> paymentsmadeset = new HashSet<Customer>();
+		try (Connection con = conn.getConnection()){
+			con.setAutoCommit(false);	
+		String sql  ="SELECT FROM customer WHERE (cususername, bioffer, paymentplan, paymentsmade, paymentsremain) VALUES(?, ?, ?, ?, ?)";
+		PreparedStatement pmpt = con.prepareStatement(sql);
+		pmpt.setString(1, customer.getCususername());
+		pmpt.setInt(2, customer.getBioffer());
+		pmpt.setInt(3, customer.getPaymentplan());
+		pmpt.setInt(4, customer.getPaymentsmade());
+		pmpt.setInt(5, customer.getPaymentsremain());
 		
+		ResultSet rs = pmpt.executeQuery();
+		while (rs.next()) {
+			String cususername = rs.getString("cususername");
+					int bioffer = rs.getInt("bioffer");
+					int paymentplan = rs.getInt("paymentplan");
+					int paymentsmade = rs.getInt("paymentsmade");
+					int paymentsremain = rs.getInt("paymentsremain");
+					System.out.print("Cususername: " +cususername);
+					System.out.print(", Bioffer: " +bioffer);
+					System.out.print(", Paymentplan: " +paymentplan);
+					System.out.print(", Payments made: " +paymentsmade);
+					System.out.print(", Payments Remaining: " +paymentsremain);					
+		}
+		rs.close();
+			} catch(Exception e) {
+				if (e.getMessage().contains("This bicycle is no longer available as it has recently been purchased by another customer"))
+				throw new BiOfferAcceptedandBicycleOwnedException();
+			}
+return customer;
+			
 		
-		
-		return paymentsmadeset;
+	
 	}
 
 	@Override //working on still
-	public Set<Customer> ViewPending() throws BiOfferAcceptedandBicycleOwnedException {
+	public void ViewPendingOffers() throws BiOfferAcceptedandBicycleOwnedException {
 		
-try (Connection con = conn.getConnection()){
-			
-			con.setAutoCommit(false);
-		Set<Customer> customers = new HashSet<Customer>();
-		Set<Customer> apending = new HashSet<>();
+			try (Connection con = conn.getConnection()){
+				Customer customer = new Customer();
+			con.setAutoCommit(false);	
+		String sql  ="SELECT FROM customer (cususername, bioffer, paymentplan) VALUES(?, ?, ?)";
+		PreparedStatement pmpt = con.prepareStatement(sql);
+		pmpt.setString(1, customer.getCususername());
+		pmpt.setInt(2, customer.getBioffer());
+		pmpt.setInt(3, customer.getPaymentplan());
 		
-		for (Customer customer : customers) {
-			if ((((customer.getBioffer()))!=(null))) {
-				apending.add(customer); }
-			if (((customer.getPaymentplan())) != null){
-				apending.add(customer);
-			}
-			return apending;
+		ResultSet rs = pmpt.executeQuery();
+		while (rs.next()) {
+			String cususername = rs.getString("cususername");
+					int bioffer = rs.getInt("bioffer");
+					int paymentplan = rs.getInt("paymentplan");
+					System.out.print("Cususername: " +cususername);
+					System.out.print(", Bioffer: " +bioffer);
+					System.out.print(", Paymentplan: " +paymentplan);
 		}
-		
-} catch (Exception e) {
-	
-	e.printStackTrace();
-}
-return null;
-			
-		
-	
+		rs.close();
+			} catch(Exception e) {
+				if (e.getMessage().contains("This bicycle is no longer available as it has recently been purchased by another customer"))
+				throw new BiOfferAcceptedandBicycleOwnedException();
+			}
+return;
+
 	}
 
 
 
 	@Override //should work in theory havnt tested yet
-	public void EditExistingBiycles(Integer bimodel, boolean biavailable, String biname) throws NonUniqueUsernameException {
+	public Bicycles EditExisting(Bicycles bicycles, Bicycles bicyclesold) throws NonUniqueUsernameException {
 		
 		
 		try (Connection con = conn.getConnection()){
-			
-			con.setAutoCommit(false);
-			String sql ="UPDATE bicycles  VALUES(?, ?, ?)";
-			String[] keys = {"bimodel"};
-			PreparedStatement pmpt = con.prepareStatement(sql, keys);
-			pmpt.setInt(1, bimodel);
-			pmpt.setBoolean(2, biavailable);
-			pmpt.setString(2, biname);
+			//taking the old user inputted values into the bicyclesold object and regetting them back into boolean, string, int form
+			//then setting the new user inputted values at the old values locations in the sql database at least thats what i think i'm doing lol
+			con.setAutoCommit(false);	
+			int bimodelold = (bicyclesold.getBimodel());
+			boolean biavailableold = bicyclesold.isBiavailable();
+			String binameold = bicyclesold.getBiname();
+			String sql ="UPDATE FROM bicycles (bimodel, biavailable, biname) WHERE VALUES(bimodelold, biavailableold, binameold)";
+			PreparedStatement pmpt = con.prepareStatement(sql);
+			pmpt.setInt(1, bicycles.setBimodel(bimodelold));
+			pmpt.setBoolean(2, bicycles.isBiavailable(biavailableold));
+			pmpt.setString(2, bicycles.setBiname(binameold));
 			pmpt.executeUpdate();
 			ResultSet rs = pmpt.getGeneratedKeys();
 			
 			while (rs.next()) {
-				 Bicycles bibi = new Bicycles();
 				con.commit(); 
-				if(bibi.equals(null)) {
-					con.rollback(); } } 
+					} 
 		} catch (Exception e ) {
 			if (e.getMessage().contains("violates unique constraint")) {
 				throw new NonUniqueUsernameException();
 			}
 		} 
-		return;
+		return bicycles;
 		}
 		
 	
@@ -165,7 +193,6 @@ return null;
 				log.info("Bicycles values were added successfully: "+bicycles.toString());
 			}	catch(Exception e ) {
 				log.debug("Exception thrown when trying to add: "+bicycles.toString());
-				e.printStackTrace();
 	}
 		return bicycles;
 		}

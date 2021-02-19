@@ -11,7 +11,6 @@
     <fullyQualifiedTypeName name="com.revature.bicycleshop.interfaces.EmployeeInterface"/>
     <fullyQualifiedTypeName name="com.revature.bicycleshop.methods.ManagerMethods"/>
     <fullyQualifiedTypeName name="com.revature.bicycleshop.interfaces.ManagerInterface"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="com.revature.bicycleshop.merchandise.Bicycles"/>
     <fullyQualifiedTypeName name="com.revature.bicycleshop.users.Customer"/>
     <fullyQualifiedTypeName name="java.util.HashSet"/>
@@ -32,4 +31,8 @@
     <fullyQualifiedTypeName name="com.revature.bicycleshop.exceptions.NoDataInTableException"/>
     <fullyQualifiedTypeName name="com.revature.bicycleshop.exceptions.Exceptions"/>
     <fullyQualifiedTypeName name="com.revature.bicycleshop.users.Employee"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 </qualifiedTypeNameHistroy>

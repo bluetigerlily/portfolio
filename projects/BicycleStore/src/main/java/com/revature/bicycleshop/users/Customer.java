@@ -1,8 +1,5 @@
 package com.revature.bicycleshop.users;
 
-
-
-
 public class Customer extends Employee {
 	
 	
@@ -28,7 +25,7 @@ public class Customer extends Employee {
 		private static String cususername;
 		private static String cuspassword;
 		public static boolean biavailable;
-		private static Integer bioffer; //needs to be joined to bipending in employee table and bimodel in bicycles table
+		private static int bioffer; //needs to be joined to bipending in employee table and bimodel in bicycles table
 		public static boolean biowned; //needs to be joined to bimodel in bicycles table
 		public static Integer paymentplan;//make note this is linked with bioffer
 		public static Integer paymentsmade;
@@ -39,7 +36,20 @@ public class Customer extends Employee {
 		
 		//getters and setters
 		
-		public Customer(Integer cusid, String cususername, String cuspassword, Integer bioffer, boolean biowned, Integer paymentplan, Integer paymentsmade, Integer paymentsremain, Integer date)
+		@Override
+		public String toString() {
+			return "Customer [getCususername()=" + getCususername() + ", getCuspassword()=" + getCuspassword()
+					+ ", getBioffer()=" + getBioffer() + ", getPaymentplan()=" + getPaymentplan()
+					+ ", getPaymentsremain()=" + getPaymentsremain() + ", getPaymentsmade()=" + getPaymentsmade()
+					+ ", getCusid()=" + getCusid() + ", getEmppassword()=" + getEmppassword() + ", getEmpusername()="
+					+ getEmpusername() + ", isEmploystatus()=" + isEmploystatus() + ", isBiavailable()="
+					+ isBiavailable() + ", getBiname()=" + getBiname() + ", getBimodel()=" + getBimodel()
+					+ ", getManpassword()=" + getManpassword() + ", getManusername()=" + getManusername()
+					+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+					+ "]";
+		}
+
+		public Customer(Integer cusid, String cususername, String cuspassword, int bioffer, boolean biowned, Integer paymentplan, Integer paymentsmade, Integer paymentsremain, Integer date)
 		{
 			super();
 			Customer.cusid = cusid;
@@ -60,11 +70,11 @@ public class Customer extends Employee {
 
 
 		public Customer(int i, String string, String string2) {
-			// TODO Auto-generated constructor stub
+			
 		}
 
 		public Customer(String string, String string2) {
-			// TODO Auto-generated constructor stub
+			
 		}
 
 		public String getCususername() {
@@ -85,10 +95,10 @@ public class Customer extends Employee {
 		public void setBiavailable(boolean biavailable) {
 			Customer.biavailable = biavailable;
 		}
-		public Integer getBioffer() {
+		public int getBioffer() {
 			return bioffer;
 		}
-		public void setBioffer(Integer bioffer) {
+		public void setBioffer(int bioffer) {
 			Customer.bioffer = bioffer;
 		}
 		public boolean isBiowned(boolean biowned) {
@@ -128,6 +138,7 @@ public class Customer extends Employee {
 			
 			
 		}
+
 
 
 

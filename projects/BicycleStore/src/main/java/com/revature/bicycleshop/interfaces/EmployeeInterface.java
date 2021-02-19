@@ -1,7 +1,6 @@
 package com.revature.bicycleshop.interfaces;
 
 import java.sql.SQLException;
-import java.util.Set;
 import com.revature.bicycleshop.exceptions.BiOfferAcceptedandBicycleOwnedException;
 import com.revature.bicycleshop.exceptions.NonUniqueUsernameException;
 import com.revature.bicycleshop.merchandise.Bicycles;
@@ -51,9 +50,9 @@ public interface EmployeeInterface {
 	void AddCustomer(Customer customer) throws Exception;
 	Bicycles AddBi(Bicycles bicycles ) throws Exception;
 	Bicycles RemoveBi(Bicycles bicycles) throws SQLException;
-	public Set<Customer> ViewAllPayments(Customer customer) throws Exception;
-	public Set<Customer> ViewPending() throws BiOfferAcceptedandBicycleOwnedException;
+	public Customer ViewAllPayments(Customer customer) throws Exception;
+	public void ViewPendingOffers() throws BiOfferAcceptedandBicycleOwnedException;
 	Employee EmpLogin() throws Exception;
-	void EditExistingBiycles(Integer bimodel, boolean biavailable, String biname) throws NonUniqueUsernameException;
+	Bicycles EditExisting(Bicycles bicycles, Bicycles bicyclesold) throws NonUniqueUsernameException;
 	
 }
