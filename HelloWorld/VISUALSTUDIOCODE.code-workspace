@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "Projects",
+			"path": ".."
+		},
+		{
+			"path": "..\\TodoList"
+		},
+		{
+			"path": "..\\tutorial"
+		},
+		{
+			"path": "D:\\Desktop - Data Drive\\Workspace\\revature training\\2102-feb01-usf"
+		}
+	],
+	"settings": {}
+}
