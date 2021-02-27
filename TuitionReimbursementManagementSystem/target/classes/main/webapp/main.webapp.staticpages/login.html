@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>LoginHTML</title>
+<link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+	<div class="startup">
+		<div class="form-box">
+			<div class="button-box">
+			<div id="btn"></div>
+				<button type="button" class="toggle-btn" onclick="login()">Log In</button>
+				<button type="button" class="toggle-btn" onclick="register()">Register</button>
+				</div>
+				<form id="login" class="input-group"
+					 		action="servlet1" method="post"> 
+				 		<input type="text" class="input-field" name="username" placeholder="Enter Username" required> <br />
+						<input type="password" class="input-field" name="password" placeholder="Enter Password" required> <br />
+						<input type="checkbox" class="check-box"><span>Remember Password</span>
+						<br /> <button type="submit" class="submit-btn">Log in</button>
+						</form>
+			<form id="register" class= "input-group"
+							 action="servlet1" method="post"> 
+				 		<input type="text" class="input-field" name="username" placeholder="Enter Username" required> <br />
+						<input type="password" class="input-field" name="password" placeholder="Enter Password" required> <br />
+						<input type="email" class="input-field" name="useremail" placeholder="Enter Email Address" required> <br />
+						<input type="checkbox" class="check-box"><span>I agree to Terms and Conditions</span>
+						<br /> <button type="submit" class="submit-btn">Register New User</button>
+						</form>
+			</div>
+		</div>
+	
+
+<script>
+var x = document.getElementById("login");
+var y = document.getElementById("register");
+var z = document.getElementById("btn");
+
+function register() {
+	x.style.left = "-400px";
+	y.style.left = "50px";
+	z.style.left = "110px";
+}	
+
+function login() {
+		x.style.left = "50px";
+		y.style.left = "450px";
+		z.style.left = "0px";
+}
+
+</script>
+
+
+</body>
+</html>
+

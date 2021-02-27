@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+<meta charset="ISO-8859-1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Main Page</title>
+<link rel="stylesheet" href="default.css">
+<script src="default.js"></script>
+
+
+</head>
+
+<body>
+
+
+
+<div class="mainpage">
+		<div class="form-box">
+			<div class="button-box">
+			<div id="btn"></div>
+				<button type="button" class="toggle-btn" onclick="newevent()">New Tuition Reimbursement Form</button>
+				<button type="button" class="toggle-btn" onclick="viewexisting()">View Existing Reimbursement Form</button>
+				<button type="button" class="toggle-btn" onclick="logout()">Log Out</button>
+			
+				</div>
+	<form action="servlet2" method="post"></form>
+			
+			
+			<form id="newevent" class="input-group"
+			action="servlet1" method="post"> 
+				 		<p>Enter Your First Name</p>
+				 		<input type="text" class="input-field" name="First Name" placeholder="Enter Your First Name" required> <br />
+						<p>Enter Your Last Name</p>
+						<input type="text" class="input-field" name="Last Name" placeholder="Enter Your Last Name" required> <br />
+						<p>Check Which Type of Event you Will be Attending</p>
+						<input type="checkbox" class="check-box"><span>Certification</span><br />
+						<input type="checkbox" class="check-box"><span>Certification Preparation</span><br />
+						<input type="checkbox" class="check-box"><span>Technical Training</span><br />
+						<input type="checkbox" class="check-box"><span>University Course</span><br />
+						<input type="checkbox" class="check-box"><span>Other</span><br /><br/>
+						<p>Enter the Cost of the Event</p>
+						<input type="number" class="input-field" name="Event Cost" placeholder="Enter the Cost of the Event" required> <br />
+						<p>Enter the Start Date of the Event</p>
+						<input type="date" class="input-field" name="Event Start Date" placeholder="Enter the Start Date of the Event" required> <br />
+						<p>Enter the End Date of the Event</p>						
+						<input type="date" class="input-field" name="Event End Date" placeholder="Enter the End Date of the Event" required> <br />
+						<p>Enter Today's Current Date</p>
+						<input type="date" class="input-field" name="Current Date" placeholder="Enter the Current Date for today" required> <br />
+						<p>Enter a Description of the Event</p> <br/>
+						<input type="text" class="input-fielddescription" name="Event Description" placeholder="Enter a Description of the Event" required> <br />
+						<br><p>Enter the Event Location</p>
+						<input type="text" class="input-field" name="Event Location" placeholder="Enter the Location of the Event" required> <br />
+						<p>Check which Grading Formats Apply for the Event</p><br/>
+						<input type="checkbox" class="check-box" name="Event Grading Format Custom Passing Grade"><span>Custom Passing Letter Grade</span><br />
+						<input type="checkbox" class="check-box" name="Event Grading Format Default Passing Grade"><span>Default Passing Letter Grade</span><br />
+						<input type="checkbox" class="check-box" name="Event Grading Format Presentation"><span>Presentation Format</span><br />
+						<input type="email" class="input-field" name="Direct Supervisor Email" placeholder="Enter your Direct Supervisors Email Address" required> <br />
+						<input type="text" class="input-field" name="Direct Supervisors First Name" placeholder="Enter your Direct Supervisors First Name" required> <br />
+						<input type="text" class="input-field" name="Direct Supervisors Last Name" placeholder="Enter your Direct Supervisors Last Name" required> <br />
+						<p>Check if your Department Head is also your Direct Supervisor</p><br />
+						<input type="checkbox" class="check-box" required><span>Dept. Head is also my Dir Sup</span><br />
+						<input type="email" class="input-field" name="Department Heads Email" placeholder="Enter your Department Heads Email Address" required> <br />
+						<input type="text" class="input-field" name="Department Heads First Name" placeholder="Enter your Department Heads First Name" required> <br />
+						<input type="text" class="input-field" name="Department Heads Last Name" placeholder="Enter your Department Heads Last Name" required> <br />
+						<p>Check if your Department Head is also your Benefits Coordinator</p><br />
+						<input type="checkbox" class="check-box" required><span>Dept. Head is also my BenCo</span><br />
+						<input type="email" class="input-field" name="Benefit Coordinators Email" placeholder="Enter your Benfit Coordinators Email Address" required> <br />
+						<input type="text" class="input-field" name="Benefit Coordinators First Name" placeholder="Enter your Benefit Coordinators First Name" required> <br />
+						<input type="text" class="input-field" name="Benefit Coordinators Last Name" placeholder="Enter your Benefit Coordinators Last Name" required> <br />
+						<p>Attach any Other Supporting Information along with Your Tuition Reimbursement Request</p>
+					
+						<input type="file" id="docpicker"
+  accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"> 
+				
+						<br /><br /><br />
+						
+						 <button type="submit" class="submit-btn">Submit for Approval</button>
+						</form>
+						
+			
+							
+	
+	
+	</div>
+	</div>
+	
+	<script>
+
+var r = document.getElementById("logout");	
+var x = document.getElementById("newevent");
+var y = document.getElementById("viewexisting");
+var z = document.getElementById("btn");
+
+
+function newevent() {
+	x.style.left = "";
+	y.style.left = "";
+	z.style.left = "";
+	r.style.left = "";
+}	
+
+function viewexisting() {
+		x.style.left = "";
+		y.style.left = "";
+		z.style.left = "";
+		r.style.left ="";
+}
+
+function logout(){
+	x.style.left = "";
+	y.style.left = "";
+	z.style.left = "";
+	r.style.left = "";
+	
+}
+
+
+</script>
+	
+	
+	
+	
+	
+</body>
+</html>

@@ -13,10 +13,6 @@ import com.revature.tables.User;
 
 public class LoginDelegate implements FrontControllerDelegate{
 	
-	UserServices userservices = new UserServices();
-	
-	
-	
 	
 	private LoginDao Login = new LoginDao();
 	private ObjectMapper om = new ObjectMapper();
