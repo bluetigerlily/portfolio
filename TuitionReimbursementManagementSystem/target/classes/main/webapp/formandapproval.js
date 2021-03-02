@@ -64,7 +64,7 @@ function populateevents(events) {
             //  disabled="false">approvebntn</button>
             
             let btnTd = document.createElement('td');
-            btnTd.appendChild(adoptBtn);
+            btnTd.appendChild(approveBtn);
             tr.appendChild(btnTd);
             table.appendChild(tr);
             
@@ -83,7 +83,7 @@ async function approveevents() {
     let id = btnId.slice(index+1); // get text after underscore
     let name = btnId.replace('_', ''); // remove underscore
     if (confirm('You want to approve ' + name + '?')) {
-        let url = baseUrl + '/cat/adopt/' + id;
+        let url = baseUrl + '/events/approve/' + id;
         let response = await fetch(url, {method:'PUT'});
         switch (response.status) {
             case 200:
@@ -115,7 +115,7 @@ function employeeSetup() {
         employeeSpan.appendChild(addeventBtn);
     }
 
-    // edit cat
+    // edit userTable
     let userTable = document.getElementById('user');
     for (let tr of userTable.childNodes) {
         if (tr.nodeName === 'TR') {
@@ -134,7 +134,7 @@ function employeeSetup() {
 }
 
 function addeventMenu() {
-    let employeeSpan = document.getElementById('user');
+    let employeeSpan = document.getElementById('events');
     addeventMenuOpen = !addeventMenuOpen;
     console.log('add event menu open? ' + addeventMenuOpen);
 
@@ -261,7 +261,6 @@ async function populateevents() {
     let url = baseUrl + '/user/events';
     let response = await fetch(url);
     if (response.status === 200) {
-        let events = await response.json();
         for (let events of events) {
             let eventOption = document.createElement('option');
             eventOption.value = events.id;
