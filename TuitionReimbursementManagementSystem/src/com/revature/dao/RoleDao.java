@@ -1,14 +1,9 @@
 package com.revature.dao;
 
-import org.apache.log4j.Logger;
-import com.revature.connector.Connector;
-import com.revature.services.RoleServices;
+import com.revature.beans.Role;
 
-public class RoleDao implements RoleServices {
+public interface RoleDAO extends GenericDAO<Role>{
+	public Role add(Role r) throws Exception;
 
-	Connector conn = Connector.getConnector();
-	Logger log = Logger.getLogger(RoleDao.class.getName());
-	
-	
-	
+	Role getbyUserid(String userid) throws Exception;
 }

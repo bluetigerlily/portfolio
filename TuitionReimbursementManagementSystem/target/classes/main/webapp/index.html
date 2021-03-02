@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuition Reimbursement Management System | Login/Register Page</title>
+<link rel="stylesheet" href="index.css"></head>
+
+
+
+
+<body>
+
+	
+	<main>
+		Welcome to the Tuition Reimbursement Management System!
+	<br/>
+<div class="startup">
+		<div class="form-box">
+	<div class="button-box">
+			<div id="btn"></div>
+				<button type="button" class="toggle-btn" onclick="login()">Log In</button>
+				<button type="button" class="toggle-btn" onclick="register()">Register</button>
+	</div>
+	<form id="login" class="input-group"
+					 		action="login" method="post">
+					 		<label for="username"><b>Username</b></label> 
+				 		<input type="text" class="input-field" name="username" placeholder="Enter Username" required> <br />
+						<label for="password"><b>Password</b></label>
+						<input type="password" class="input-field" name="password" placeholder="Enter Password" required> <br />
+						<input type="checkbox" class="check-box"><span>Remember Password</span>
+						<br /> <button type="submit" class="submit-btn">Log in</button>
+						</form>
+			<form id="register" class= "input-group"
+							 action="process" method="post"> 
+							 <label for="username"><b>Username</b></label>
+				 		<input type="text" class="input-field" name="username" placeholder="Enter Username" required> <br />
+				 			<label for="password"><b>Password</b></label>
+						<input type="password" class="input-field" name="password" placeholder="Enter Password" required> <br />
+							<label for="email"><b>Email Address</b></label>
+						<input type="email" class="input-field" name="useremail" placeholder="Enter Email Address" required> <br />
+						<input type="checkbox" class="check-box"><span>I agree to Terms and Conditions</span>
+						<br /> <button type="submit" class="submit-btn">Register New User</button>
+						</form>
+			</div>
+			</div>
+
+
+
+	
+	</main>
+<script>
+var x = document.getElementById("login");
+var y = document.getElementById("register");
+var z = document.getElementById("btn");
+
+function register() {
+	x.style.left = "-400px";
+	y.style.left = "50px";
+	z.style.left = "110px";
+}	
+
+function login() {
+		x.style.left = "50px";
+		y.style.left = "450px";
+		z.style.left = "0px";
+}
+
+
+src = "myPending.js"
+src = "profile.js"
+src="formandapproval.js"
+src = "index.js"
+</script>
+
+</body>
+</html>
+

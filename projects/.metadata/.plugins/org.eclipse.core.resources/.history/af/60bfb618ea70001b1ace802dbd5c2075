@@ -1,7 +1,0 @@
-package com.revature.bicycleshop.exceptions;
-
-public class NoDataInTableException extends Exception{
- public NoDataInTableException() {
-	 super("");
- }
-}

@@ -1,46 +1,105 @@
 package com.revature.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.revature.dao.LoginDao;
+
+import org.apache.catalina.servlets.DefaultServlet;
+
+import com.revature.delegates.FrontControllerDelegate;
+import com.revature.exceptions.NonUniqueUsernameException;
 
 /**
  * Servlet implementation class FrontController
  */
-@WebServlet("/FrontController")
-public class FrontController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+
+@SuppressWarnings("serial")
+public class FrontController extends DefaultServlet {
+	private RequestHandler rh = new RequestHandler();
 
     /**
      * Default constructor. 
+     * @throws Exception
+     * @throws NonUniqueUsernameException 
      */
-    public FrontController() {
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	private void process(HttpServletRequest req, HttpServletResponse resp) throws NonUniqueUsernameException, Exception {
+		FrontControllerDelegate fcd = rh.handle(req, resp);
+		
+		if (req.getRequestURI().substring(req.getContextPath().length()).startsWith("/static")) {
+			super.doGet(req,resp);
+		} else {
+			if (fcd != null)
+				fcd.process(req, resp);
+			else
+				resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+		}
+	}
+	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
+		try {
+			process(request, response);
+		} catch (NonUniqueUsernameException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		
-		
-		doGet(request, response);
+	@Override
+	protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		try {
+			process(req, resp);
+		} catch (NonUniqueUsernameException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
+		try {
+			process(request, response);
+		} catch (NonUniqueUsernameException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		try {
+			process(req, resp);
+		} catch (NonUniqueUsernameException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		try {
+			process(req, resp);
+		} catch (NonUniqueUsernameException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

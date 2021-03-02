@@ -1,15 +1,15 @@
 package com.revature.dao;
 
-import com.revature.services.UserServices;
+import com.revature.beans.User;
 
-public class UserDao implements UserServices{
-//not sure if i need
-	
+public interface UserDAO extends GenericDAO<User>{
+ public User getbyUsername(String username) throws Exception;
+
+
+
+
+
+User getbyUserid(int userid) throws Exception;
+
+
 }
-	
-	
-	
-	
-	
-	
-	

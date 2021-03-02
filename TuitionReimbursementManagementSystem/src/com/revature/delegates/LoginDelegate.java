@@ -1,21 +1,18 @@
 package com.revature.delegates;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.dao.LoginDao;
+import com.revature.beans.User;
 import com.revature.services.UserServices;
-import com.revature.tables.User;
+import com.revature.services.UserServicesImpl;
 
 
 public class LoginDelegate implements FrontControllerDelegate{
 	
 	
-	private LoginDao Login = new LoginDao();
 	private ObjectMapper om = new ObjectMapper();
+	private UserServicesImpl userservicesimpl = new UserServicesImpl();
 	
 	@Override
 	public void process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -30,7 +27,7 @@ public class LoginDelegate implements FrontControllerDelegate{
 				String p = req.getParameter("password");
 				user.setPassword(p);
 				user.setUsername(n);
-				UserServices.CreateUser(user);
+				userservicesimpl.CreateUser(user);
 				if (user.getUserid() == 0) {
 					resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 				} else {
@@ -42,67 +39,67 @@ public class LoginDelegate implements FrontControllerDelegate{
 			}
 		} else if (path.contains("login")) {
 			if ("POST".equals(req.getMethod()))
-				LogIn(req, resp);
+				Login(req, resp);
 			else if ("DELETE".equals(req.getMethod()))
 				req.getSession().invalidate();
 			else
 				resp.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
 		} else {
-			userWithEmail(req, resp, String.valueOf(path));
+			userWithUsername(req, resp, String.valueOf(path));
 		}
 	}
 	
 	
-	private void LogIn(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	private void Login(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		
 		resp.setContentType("text/html");
 		
-		PrintWriter out = resp.getWriter();
+		
 		
 		String n = req.getParameter("username");
 		String p = req.getParameter("password");
 		
-		try {
-			if(Login.Uservalidate(n,p)) {
-				RequestDispatcher rd = req.getRequestDispatcher("default.html");
-				rd.forward(req, resp);
-			}else {
-				out.print("sorry username or password error");
-				RequestDispatcher rd = req.getRequestDispatcher("login.html");
-				rd.include(req, resp);
-			}}catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-	} 
+		
+		User u = userservicesimpl.getUserbyUsername(n);
+		if (u != null) {
+			if (u.getPassword().equals(p)) {
+				req.getSession().setAttribute("user", u);
+				resp.getWriter().write(om.writeValueAsString(u));
+			} else {
+				resp.sendError(404, "Incorrect password.");
+			}
+		} else {
+			resp.sendError(404, "No user found with that username.");
 		}
+	}
+
 	
 		
 	
 	
-	private void userWithEmail(HttpServletRequest req, HttpServletResponse resp, String useremail) throws Exception {
+	private void userWithUsername(HttpServletRequest req, HttpServletResponse resp, String username) throws Exception {
 		switch (req.getMethod()) {
 			case "GET":
 				User user = new User();
-				user.setUseremail(useremail);
-				UserServices.getUserbyEmail(user);
-				if (useremail != null) {
-					resp.getWriter().write(om.writeValueAsString(useremail));
+				userservicesimpl.getUserbyUsername(username);
+				if (username != null) {
+					resp.getWriter().write(om.writeValueAsString(username));
 				} else {
 					resp.sendError(404, "User not found.");
 				}
 				break;
 			case "PUT":
 				String password = req.getParameter("password");
-				User userzard = (User) req.getSession().getAttribute("username");
-				if (userzard != null) {
-					userzard.setPassword(password);
-					UserServices.updateUser(userzard);
+				 user = (User) req.getSession().getAttribute("username");
+				if (user != null) {
+					user.setPassword(password);
+					userservicesimpl.updateUser(user);
 				} else
 					resp.sendError(HttpServletResponse.SC_UNAUTHORIZED);
 				break;
 			case "DELETE":
 				 user = om.readValue(req.getInputStream(), User.class);
-				UserServices.deleteUser(user);
+				userservicesimpl.deleteUser(user);
 				break;
 			default:
 				resp.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
