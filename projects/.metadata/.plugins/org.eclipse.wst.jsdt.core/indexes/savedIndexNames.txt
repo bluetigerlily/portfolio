@@ -1,11 +1,4 @@
 INDEX VERSION 1.4+D:\Desktop - Data Drive\Workspace\revature training\2102-feb01-usf\projects\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2937254216.index
-156721534.index
-2470095482.index
-2470095482.index
-314890222.index
-2940483793.index
-3419306233.index
-3221492272.index
-1121277289.index
+1171989053.index
+2804123386.index
 1228180412.index
