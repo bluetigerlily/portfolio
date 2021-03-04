@@ -1,8 +1,10 @@
 package com.revature.controller;
 
+import java.io.Console;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.ConsoleHandler;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -41,6 +43,10 @@ public FrontControllerDelegate handle(HttpServletRequest req, HttpServletRespons
 
 		}
 
+		if (req.getRequestURI().toLowerCase().contains("user")) {
+            return new LoginDelegate();
+        }
+		System.out.println(uriString.toString());
 		return delegateMap.get(uriString.toString());
 
 			}}

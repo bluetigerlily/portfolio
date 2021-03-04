@@ -120,16 +120,16 @@ User user = new User();
 		switch (req.getMethod()) {
 		case "GET":
 			User user = new User();
-			userservicesimpl.getUserbyUsername(username);
-			if (username != null) {
-				resp.getWriter().write(om.writeValueAsString(username));
+			user = userservicesimpl.getUserbyUsername(username);
+			if (user != null) {
+				resp.getWriter().write(om.writeValueAsString(user));
 			} else {
 				resp.sendError(404, "User not found.");
 			}
 			break;
 		case "PUT":
 			String password = req.getParameter("password");
-			user = (User) req.getSession().getAttribute("username");
+			user = (User) req.getSession().getAttribute("user");
 			if (user != null) {
 				user.setPassword(password);
 				userservicesimpl.updateUser(user);

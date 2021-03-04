@@ -10,7 +10,7 @@ function setNav(){nav.innerHTML = `
         nav.innerHTML += `
             <form>
                 <label for="username">Username: </label>
-                <input id="username" name="username" type="text" />
+                <input id="user" name="username" type="text" />
                 <label for="password"> Password: </label>
                 <input id="password" name="password" type="password" />
                 <button type="button" id="loginBtn">Log In</button>
@@ -38,7 +38,7 @@ else loginBtn.onclick =login;
 		//http://localhost:8083/users?user=postgres&pass=4271
 		login.innerHTML= '<form id = login></form>'
 		let url = baseUrl + '/user/login?';
-		url += 'username=' + document.getElementById('username').value + '&';
+		url += 'user=' + document.getElementById('user').value + '&';
         url += 'password=' + document.getElementById('password').value;
         
         let response = await fetch(url, {method: 'POST'}); 
@@ -70,7 +70,7 @@ else loginBtn.onclick =login;
 }
 
 async function logout() {
-    let url = baseUrl + '/username';
+    let url = baseUrl + '/user';
     let response = await fetch(url, {method:'DELETE'});
 
     if (response.status != 200) alert('Something went wrong.');
@@ -79,7 +79,7 @@ async function logout() {
 }
 
 async function checkLogin() {
-    let url = baseUrl + '/username';
+    let url = baseUrl + '/user';
     let response = await fetch(url);
     if (response.status === 200) loggedUser = await response.json();
    setNav();

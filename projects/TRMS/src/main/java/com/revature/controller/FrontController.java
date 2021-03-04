@@ -25,20 +25,32 @@ public class FrontController extends DefaultServlet {
 	 * @throws Exception
 	 * @throws NonUniqueUsernameException
 	 */
+//	private void process(HttpServletRequest req, HttpServletResponse resp)
+//			throws NonUniqueUsernameException, Exception {
+//		FrontControllerDelegate fcd = rh.handle(req, resp);
+//		System.out.println("Test Test Test");
+//
+//		if (req.getRequestURI().substring(req.getContextPath().length()).startsWith("/static")) {
+//			super.doGet(req, resp);
+//		} else {
+//			if (fcd != null)
+//				fcd.process(req, resp);
+//			else
+//				resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+//		}
+//	}
+	
 	private void process(HttpServletRequest req, HttpServletResponse resp)
-			throws NonUniqueUsernameException, Exception {
-		FrontControllerDelegate fcd = rh.handle(req, resp);
-		System.out.println("Test Test Test");
+            throws NonUniqueUsernameException, Exception {
+        FrontControllerDelegate fcd = rh.handle(req, resp);
+        System.out.println("Test Test Test");
 
-		if (req.getRequestURI().substring(req.getContextPath().length()).startsWith("/static")) {
-			super.doGet(req, resp);
-		} else {
-			if (fcd != null)
-				fcd.process(req, resp);
-			else
-				resp.sendError(HttpServletResponse.SC_NOT_FOUND);
-		}
-	}
+        if (fcd != null)
+            fcd.process(req, resp);
+        else
+            super.doGet(req, resp);
+    }
+	
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
