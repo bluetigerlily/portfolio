@@ -64,6 +64,7 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="com.revature"/>
 			<item value="BicycleStore"/>
 			<item value="BicycleShopProject"/>
 			<item value="Bicycleshop"/>
@@ -72,6 +73,7 @@
 			<item value="BicycleStore"/>
 		</list>
 		<list key="artifactId">
+			<item value="TRMS"/>
 			<item value="BicycleStore"/>
 			<item value="BicycleShopProject"/>
 			<item value="postgres"/>
@@ -123,5 +125,18 @@
 		</list>
 	</section>
 	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="D:\Desktop - Data Drive\revassess"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
 	</section>
 </section>
