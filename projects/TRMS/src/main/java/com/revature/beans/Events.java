@@ -1,30 +1,20 @@
 package com.revature.beans;
 
-import java.util.Objects;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "events")
 public class Events{
 	
 
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "eventsid", unique = true)
 	private int id;
 	
-	@ManyToOne
-	@JoinTable(name = "events", joinColumns = @JoinColumn(name = ("events")))
-
 	@Column(name="certification")
 	private String certification;
 	
@@ -100,98 +90,7 @@ public class Events{
 	@Column(name = "changedamounto")
 	private int changedamountto; // What's the new amount
 	
-	@Column(name = "events")
-	private String events;
-
-	public Events() {
-
-		id = 0;
-		certification = "";
-		certificationprep = "";
-		other = "";
-		seminar = "";
-		technicaltraining = "";
-		universitycourse = "";
-		eventcost = 0;
-		eventlocation = "";
-		currentdate = 0;
-		eventstartdate = 0;
-		eventenddate = 0;
-		eventdescription = "";
-		gradingformatpresentation = false;
-		gradingformatletterdefault = false;
-		gradingformatlettercustom = false;
-		requestjustification = "";
-		isurgent = false;
-		rejectionjustification = "";
-		empsubmitted = false;
-		dseapproved = false;
-		dhapproved = false;
-		bencoapproved = false;
-		finalsay = false;
-		changerequestamount = false;
-		changedamountto = 0;
-		events = "";
-
-	}
-
-	/**
-	 * @return the userid
-	 */
-
-	@Override
-	public String toString() {
-		return "Events [userid=" + id + ", certification=" + certification + ", certificationprep="
-				+ certificationprep + ", other=" + other + ", seminar=" + seminar + ", technicaltraining="
-				+ technicaltraining + ", universitycourse=" + universitycourse + ", eventcost=" + eventcost
-				+ ", eventlocation=" + eventlocation + ", currentdate=" + currentdate + ", eventstartdate="
-				+ eventstartdate + ", eventenddate=" + eventenddate + ", eventdescription=" + eventdescription
-				+ ", gradingformatpresentation=" + gradingformatpresentation + ", gradingformatletterdefault="
-				+ gradingformatletterdefault + ", gradingformatlettercustom=" + gradingformatlettercustom
-				+ ", requestjustification=" + requestjustification + ", isurgent=" + isurgent
-				+ ", rejectionjustification=" + rejectionjustification + ", empsubmitted=" + empsubmitted
-				+ ", dseapproved=" + dseapproved + ", dhapproved=" + dhapproved + ", bencoapproved=" + bencoapproved
-				+ ", finalsay=" + finalsay + ", changerequestamount=" + changerequestamount + ", changedamountto="
-				+ changedamountto + ", events=" + events + "]";
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(bencoapproved, certification, certificationprep, changedamountto, changerequestamount,
-				currentdate, dhapproved, dseapproved, empsubmitted, eventcost, eventdescription, eventenddate,
-				eventlocation, events, eventstartdate, finalsay, gradingformatlettercustom, gradingformatletterdefault,
-				gradingformatpresentation, isurgent, other, rejectionjustification, requestjustification, seminar,
-				technicaltraining, universitycourse, id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (!(obj instanceof Events)) {
-			return false;
-		}
-		Events other = (Events) obj;
-		return Objects.equals(bencoapproved, other.bencoapproved) && Objects.equals(certification, other.certification)
-				&& Objects.equals(certificationprep, other.certificationprep)
-				&& changedamountto == other.changedamountto
-				&& Objects.equals(changerequestamount, other.changerequestamount) && currentdate == other.currentdate
-				&& Objects.equals(dhapproved, other.dhapproved) && Objects.equals(dseapproved, other.dseapproved)
-				&& Objects.equals(empsubmitted, other.empsubmitted) && eventcost == other.eventcost
-				&& Objects.equals(eventdescription, other.eventdescription) && eventenddate == other.eventenddate
-				&& Objects.equals(eventlocation, other.eventlocation) && Objects.equals(events, other.events)
-				&& eventstartdate == other.eventstartdate && Objects.equals(finalsay, other.finalsay)
-				&& Objects.equals(gradingformatlettercustom, other.gradingformatlettercustom)
-				&& Objects.equals(gradingformatletterdefault, other.gradingformatletterdefault)
-				&& Objects.equals(gradingformatpresentation, other.gradingformatpresentation)
-				&& Objects.equals(isurgent, other.isurgent) && Objects.equals(this.other, other.other)
-				&& Objects.equals(rejectionjustification, other.rejectionjustification)
-				&& Objects.equals(requestjustification, other.requestjustification)
-				&& Objects.equals(seminar, other.seminar) && Objects.equals(technicaltraining, other.technicaltraining)
-				&& Objects.equals(universitycourse, other.universitycourse) && id == other.id;
-	}
-
+	
 	public int getId() {
 		return id;
 	}
@@ -564,11 +463,212 @@ public class Events{
 		return events;
 	}
 
-	/**
-	 * @param events the events to set
-	 */
-	public void setEvents(String events) {
-		this.events = events;
+	@Override
+	public String toString() {
+		return "Events [id=" + id + ", certification=" + certification + ", certificationprep=" + certificationprep
+				+ ", other=" + other + ", seminar=" + seminar + ", technicaltraining=" + technicaltraining
+				+ ", universitycourse=" + universitycourse + ", eventcost=" + eventcost + ", eventlocation="
+				+ eventlocation + ", currentdate=" + currentdate + ", eventstartdate=" + eventstartdate
+				+ ", eventenddate=" + eventenddate + ", eventdescription=" + eventdescription
+				+ ", gradingformatpresentation=" + gradingformatpresentation + ", gradingformatletterdefault="
+				+ gradingformatletterdefault + ", gradingformatlettercustom=" + gradingformatlettercustom
+				+ ", requestjustification=" + requestjustification + ", isurgent=" + isurgent
+				+ ", rejectionjustification=" + rejectionjustification + ", empsubmitted=" + empsubmitted
+				+ ", dseapproved=" + dseapproved + ", dhapproved=" + dhapproved + ", bencoapproved=" + bencoapproved
+				+ ", finalsay=" + finalsay + ", changerequestamount=" + changerequestamount + ", changedamountto="
+				+ changedamountto + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((bencoapproved == null) ? 0 : bencoapproved.hashCode());
+		result = prime * result + ((certification == null) ? 0 : certification.hashCode());
+		result = prime * result + ((certificationprep == null) ? 0 : certificationprep.hashCode());
+		result = prime * result + changedamountto;
+		result = prime * result + ((changerequestamount == null) ? 0 : changerequestamount.hashCode());
+		result = prime * result + currentdate;
+		result = prime * result + ((dhapproved == null) ? 0 : dhapproved.hashCode());
+		result = prime * result + ((dseapproved == null) ? 0 : dseapproved.hashCode());
+		result = prime * result + ((empsubmitted == null) ? 0 : empsubmitted.hashCode());
+		result = prime * result + eventcost;
+		result = prime * result + ((eventdescription == null) ? 0 : eventdescription.hashCode());
+		result = prime * result + eventenddate;
+		result = prime * result + ((eventlocation == null) ? 0 : eventlocation.hashCode());
+		result = prime * result + eventstartdate;
+		result = prime * result + ((finalsay == null) ? 0 : finalsay.hashCode());
+		result = prime * result + ((gradingformatlettercustom == null) ? 0 : gradingformatlettercustom.hashCode());
+		result = prime * result + ((gradingformatletterdefault == null) ? 0 : gradingformatletterdefault.hashCode());
+		result = prime * result + ((gradingformatpresentation == null) ? 0 : gradingformatpresentation.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((isurgent == null) ? 0 : isurgent.hashCode());
+		result = prime * result + ((other == null) ? 0 : other.hashCode());
+		result = prime * result + ((rejectionjustification == null) ? 0 : rejectionjustification.hashCode());
+		result = prime * result + ((requestjustification == null) ? 0 : requestjustification.hashCode());
+		result = prime * result + ((seminar == null) ? 0 : seminar.hashCode());
+		result = prime * result + ((technicaltraining == null) ? 0 : technicaltraining.hashCode());
+		result = prime * result + ((universitycourse == null) ? 0 : universitycourse.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Events other = (Events) obj;
+		if (bencoapproved == null) {
+			if (other.bencoapproved != null)
+				return false;
+		} else if (!bencoapproved.equals(other.bencoapproved))
+			return false;
+		if (certification == null) {
+			if (other.certification != null)
+				return false;
+		} else if (!certification.equals(other.certification))
+			return false;
+		if (certificationprep == null) {
+			if (other.certificationprep != null)
+				return false;
+		} else if (!certificationprep.equals(other.certificationprep))
+			return false;
+		if (changedamountto != other.changedamountto)
+			return false;
+		if (changerequestamount == null) {
+			if (other.changerequestamount != null)
+				return false;
+		} else if (!changerequestamount.equals(other.changerequestamount))
+			return false;
+		if (currentdate != other.currentdate)
+			return false;
+		if (dhapproved == null) {
+			if (other.dhapproved != null)
+				return false;
+		} else if (!dhapproved.equals(other.dhapproved))
+			return false;
+		if (dseapproved == null) {
+			if (other.dseapproved != null)
+				return false;
+		} else if (!dseapproved.equals(other.dseapproved))
+			return false;
+		if (empsubmitted == null) {
+			if (other.empsubmitted != null)
+				return false;
+		} else if (!empsubmitted.equals(other.empsubmitted))
+			return false;
+		if (eventcost != other.eventcost)
+			return false;
+		if (eventdescription == null) {
+			if (other.eventdescription != null)
+				return false;
+		} else if (!eventdescription.equals(other.eventdescription))
+			return false;
+		if (eventenddate != other.eventenddate)
+			return false;
+		if (eventlocation == null) {
+			if (other.eventlocation != null)
+				return false;
+		} else if (!eventlocation.equals(other.eventlocation))
+			return false;
+		if (eventstartdate != other.eventstartdate)
+			return false;
+		if (finalsay == null) {
+			if (other.finalsay != null)
+				return false;
+		} else if (!finalsay.equals(other.finalsay))
+			return false;
+		if (gradingformatlettercustom == null) {
+			if (other.gradingformatlettercustom != null)
+				return false;
+		} else if (!gradingformatlettercustom.equals(other.gradingformatlettercustom))
+			return false;
+		if (gradingformatletterdefault == null) {
+			if (other.gradingformatletterdefault != null)
+				return false;
+		} else if (!gradingformatletterdefault.equals(other.gradingformatletterdefault))
+			return false;
+		if (gradingformatpresentation == null) {
+			if (other.gradingformatpresentation != null)
+				return false;
+		} else if (!gradingformatpresentation.equals(other.gradingformatpresentation))
+			return false;
+		if (id != other.id)
+			return false;
+		if (isurgent == null) {
+			if (other.isurgent != null)
+				return false;
+		} else if (!isurgent.equals(other.isurgent))
+			return false;
+		if (this.other == null) {
+			if (other.other != null)
+				return false;
+		} else if (!this.other.equals(other.other))
+			return false;
+		if (rejectionjustification == null) {
+			if (other.rejectionjustification != null)
+				return false;
+		} else if (!rejectionjustification.equals(other.rejectionjustification))
+			return false;
+		if (requestjustification == null) {
+			if (other.requestjustification != null)
+				return false;
+		} else if (!requestjustification.equals(other.requestjustification))
+			return false;
+		if (seminar == null) {
+			if (other.seminar != null)
+				return false;
+		} else if (!seminar.equals(other.seminar))
+			return false;
+		if (technicaltraining == null) {
+			if (other.technicaltraining != null)
+				return false;
+		} else if (!technicaltraining.equals(other.technicaltraining))
+			return false;
+		if (universitycourse == null) {
+			if (other.universitycourse != null)
+				return false;
+		} else if (!universitycourse.equals(other.universitycourse))
+			return false;
+		return true;
+	}
+
+	
+	public Events(int id, String certification, String certificationprep, String other, String technicaltraining, String universitycourse, int eventcost, String seminar, String eventlocation, int currentdate, int eventstartdate, int eventenddate, String eventdescription, Boolean gradingformatpresentation, Boolean gradingformatletterdefault, Boolean gradingformatlettercustom, String requestjustification, Boolean isurgent, String rejectionjustification, Boolean dhapproved, Boolean bencoapproved, Boolean finalsay, Boolean changerequestamount, int changedamountto, Boolean dseapproved, Boolean empsubmitted) {
+		super();
+		this.id = id;
+		this.certification = certification;
+		this.certificationprep = certificationprep;
+		this.other = other;
+		this.seminar = seminar;
+		this.technicaltraining = technicaltraining;
+		this.universitycourse = universitycourse;
+		this.eventcost = eventcost;
+		this.eventlocation = eventlocation;
+		this.currentdate = currentdate;
+		this.eventstartdate = eventstartdate;
+		this.eventenddate = eventenddate;
+		this.eventdescription = eventdescription;
+		this.gradingformatpresentation = gradingformatpresentation;
+		this.gradingformatletterdefault = gradingformatletterdefault;
+		this.gradingformatlettercustom = gradingformatlettercustom;
+		this.requestjustification = requestjustification;
+		this.isurgent = isurgent;
+		this.rejectionjustification = rejectionjustification;
+		this.empsubmitted = empsubmitted;
+		this.dseapproved = dseapproved;
+		this.dhapproved = dhapproved;
+		this.bencoapproved = bencoapproved;
+		this.finalsay = finalsay;
+		this.changerequestamount = changerequestamount;
+		this.changedamountto = changedamountto;
+	}
+	public Events() {
+	}
+
+	
 
 }

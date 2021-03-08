@@ -1,29 +1,20 @@
 package com.revature.beans;
 
-import java.util.Objects;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 
 @Entity
-@Table
+@Table(name ="role")
 public class Role{
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "roleid", unique = true)
 	private int id;
 	
-	@OneToOne
-	@JoinTable(name = "role", joinColumns = @JoinColumn(name = "id"))
+	
 	
 	@Column(name = "employee")
 	private String employee;
@@ -40,23 +31,10 @@ public class Role{
 	@Column(name = "benco")
 	private String benco;
 	
-	@Column(name = "role")
-	private String role;
 	
 
-	public Role() {
-		id = 0;
-		employee = "";
-		directsuperemp = "";
-		directsuperbenco = "";
-		departmenthead = "";
-		benco = "";
-		role = "";
-
-	}
-
 	public Role(int id, String employee, String directsuperemp, String directsuperbenco, String departmenthead,
-			String benco, String role) {
+			String benco) {
 		super();
 		this.id = id;
 		this.employee = employee;
@@ -64,35 +42,15 @@ public class Role{
 		this.directsuperbenco = directsuperbenco;
 		this.departmenthead = departmenthead;
 		this.benco = benco;
-		this.role = role;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(benco, departmenthead, directsuperbenco, directsuperemp, employee, role, id);
+
+
+	public Role() {
+		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (!(obj instanceof Role)) {
-			return false;
-		}
-		Role other = (Role) obj;
-		return Objects.equals(benco, other.benco) && Objects.equals(departmenthead, other.departmenthead)
-				&& Objects.equals(directsuperbenco, other.directsuperbenco)
-				&& Objects.equals(directsuperemp, other.directsuperemp) && Objects.equals(employee, other.employee)
-				&& Objects.equals(role, other.role) && id == other.id;
-	}
 
-	@Override
-	public String toString() {
-		return "Role [userid=" + id + ", employee=" + employee + ", directsuperemp=" + directsuperemp
-				+ ", directsuperbenco=" + directsuperbenco + ", departmenthead=" + departmenthead + ", benco=" + benco
-				+ ", role=" + role + "]";
-	}
 
 	/**
 	 * @return the userid
@@ -178,18 +136,70 @@ public class Role{
 		this.benco = benco;
 	}
 
-	/**
-	 * @return the role
-	 */
-	public String getRole() {
-		return role;
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((benco == null) ? 0 : benco.hashCode());
+		result = prime * result + ((departmenthead == null) ? 0 : departmenthead.hashCode());
+		result = prime * result + ((directsuperbenco == null) ? 0 : directsuperbenco.hashCode());
+		result = prime * result + ((directsuperemp == null) ? 0 : directsuperemp.hashCode());
+		result = prime * result + ((employee == null) ? 0 : employee.hashCode());
+		result = prime * result + id;
+		return result;
 	}
 
-	/**
-	 * @param role the role to set
-	 */
-	public void setRole(String role) {
-		this.role = role;
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Role other = (Role) obj;
+		if (benco == null) {
+			if (other.benco != null)
+				return false;
+		} else if (!benco.equals(other.benco))
+			return false;
+		if (departmenthead == null) {
+			if (other.departmenthead != null)
+				return false;
+		} else if (!departmenthead.equals(other.departmenthead))
+			return false;
+		if (directsuperbenco == null) {
+			if (other.directsuperbenco != null)
+				return false;
+		} else if (!directsuperbenco.equals(other.directsuperbenco))
+			return false;
+		if (directsuperemp == null) {
+			if (other.directsuperemp != null)
+				return false;
+		} else if (!directsuperemp.equals(other.directsuperemp))
+			return false;
+		if (employee == null) {
+			if (other.employee != null)
+				return false;
+		} else if (!employee.equals(other.employee))
+			return false;
+		if (id != other.id)
+			return false;
+		return true;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "Role [id=" + id + ", employee=" + employee + ", directsuperemp=" + directsuperemp
+				+ ", directsuperbenco=" + directsuperbenco + ", departmenthead=" + departmenthead + ", benco=" + benco
+				+ "]";
+	}
+
 
 }

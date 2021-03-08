@@ -2,8 +2,10 @@ package com.revature.services;
 
 import java.util.Set;
 
+import com.revature.beans.Events;
 import com.revature.beans.Role;
 import com.revature.beans.User;
+import com.revature.exceptions.NonUniqueUsernameException;
 
 public interface UserServices {
 
@@ -21,10 +23,24 @@ public interface UserServices {
 
 	int CreateUser(User user) throws Exception;
 
-	boolean validate(String username, String password);
+	boolean validate(String username, String password) throws Exception;
 
-	void saveUser(User user);
+	void saveUser(User user) throws Exception;
 
-	public Set<Role> getAllRoles();
+	public Set<Role> getAllRoles() throws Exception;
+	
+	public Integer addUser(User user) throws NonUniqueUsernameException;
+	
+	public int addEvent(Events e) throws Exception;
+
+	void approveEvents(User u, Events e) throws Exception;
+
+	Events updateEvents(Events e) throws Exception;
+
+	Object getRolebyId() throws Exception;
+
+	Object getUserbyId() throws Exception;
+	
+	
 
 }

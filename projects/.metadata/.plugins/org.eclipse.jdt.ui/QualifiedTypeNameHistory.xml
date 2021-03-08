@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.revature.bicycleshop.interfaces.EmployeeInterface"/>
-    <fullyQualifiedTypeName name="com.revature.bicycleshop.methods.ManagerMethods"/>
-    <fullyQualifiedTypeName name="com.revature.bicycleshop.interfaces.ManagerInterface"/>
     <fullyQualifiedTypeName name="com.revature.bicycleshop.merchandise.Bicycles"/>
     <fullyQualifiedTypeName name="com.revature.bicycleshop.users.Customer"/>
     <fullyQualifiedTypeName name="java.util.HashSet"/>
@@ -49,15 +46,18 @@
     <fullyQualifiedTypeName name="org.junit.jupiter.api.TestMethodOrder"/>
     <fullyQualifiedTypeName name="com.revature.dao.hibernate.UserHibernate"/>
     <fullyQualifiedTypeName name="com.revature.dao.hibernate.RoleHibernate"/>
-    <fullyQualifiedTypeName name="com.revature.dao.hibernate.EventsHibernate"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeAll"/>
     <fullyQualifiedTypeName name="com.revature.delegates.FrontControllerDelegate"/>
-    <fullyQualifiedTypeName name="com.revature.beans.User"/>
     <fullyQualifiedTypeName name="com.revature.beans.Events"/>
-    <fullyQualifiedTypeName name="com.revature.services.UserServicesImpl"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
-    <fullyQualifiedTypeName name="com.revature.beans.Role"/>
     <fullyQualifiedTypeName name="com.revature.services.UserServices"/>
     <fullyQualifiedTypeName name="java.util.logging.ConsoleHandler"/>
+    <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
+    <fullyQualifiedTypeName name="com.revature.exceptions.NonUniqueUsernameException"/>
+    <fullyQualifiedTypeName name="com.revature.services.UserServicesImpl"/>
+    <fullyQualifiedTypeName name="com.revature.beans.User"/>
+    <fullyQualifiedTypeName name="com.revature.dao.EventsDAO"/>
+    <fullyQualifiedTypeName name="com.revature.dao.hibernate.EventsHibernate"/>
+    <fullyQualifiedTypeName name="com.revature.beans.Role"/>
 </qualifiedTypeNameHistroy>

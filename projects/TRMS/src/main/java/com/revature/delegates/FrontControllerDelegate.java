@@ -8,6 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 public interface FrontControllerDelegate{
 
 	void process(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException;
+			throws ServletException, IOException, Exception;
 	
 }

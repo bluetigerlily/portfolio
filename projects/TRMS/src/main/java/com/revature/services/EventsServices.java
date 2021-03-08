@@ -12,4 +12,10 @@ public interface EventsServices {
 	void UpdateEvents(Events e) throws Exception;
 
 	User getAllEvents() throws Exception;
+
+	Object getPendingEvents() throws Exception;
+
+	Events getEventById(int eventid) throws Exception;
+
+	void removeEvents(Events e) throws Exception;
 }

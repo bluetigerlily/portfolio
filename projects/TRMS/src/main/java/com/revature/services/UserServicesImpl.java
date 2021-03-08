@@ -5,16 +5,21 @@ import java.util.Set;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
+import com.revature.beans.Events;
 import com.revature.beans.Role;
 import com.revature.beans.User;
 import com.revature.dao.DAOFactory;
+import com.revature.dao.EventsDAO;
 import com.revature.dao.RoleDAO;
 import com.revature.dao.UserDAO;
+import com.revature.dao.hibernate.EventsHibernate;
+import com.revature.exceptions.NonUniqueUsernameException;
 import com.revature.utils.HibernateUtil;
 
 public class UserServicesImpl implements UserServices {
 	private UserDAO userdao;
 	private RoleDAO roledao;
+	
 
 	public static Logger Log = Logger.getLogger(UserServicesImpl.class);
 
@@ -65,7 +70,7 @@ public class UserServicesImpl implements UserServices {
 	}
 	
 	@Override 
-	public boolean validate(String username, String password) {
+	public boolean validate(String username, String password) throws Exception{
 		org.hibernate.Transaction transaction = null;
 		User user = null;
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
@@ -86,7 +91,7 @@ public class UserServicesImpl implements UserServices {
 	}
 	
 	@Override
-	public void saveUser(User user) {
+	public void saveUser(User user) throws Exception {
 		org.hibernate.Transaction transaction = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			transaction = session.beginTransaction();
@@ -101,11 +106,50 @@ public class UserServicesImpl implements UserServices {
 	}
 
 	@Override
-	public Set<Role> getAllRoles() {
+	public Set<Role> getAllRoles() throws Exception{
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Integer addUser(User u) throws NonUniqueUsernameException{
+		try {
+			return userdao.add(u).getId();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@Override
+	public int addEvent(Events e) throws Exception {
+		EventsDAO eventsdao = new EventsHibernate();
+			return eventsdao.add(e).getId();
+	}
+	
+	@Override
+	public void approveEvents(User u, Events e) throws Exception{
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public Events updateEvents(Events e) throws Exception{
+		// TODO Auto-generated method stub
+		return e;
+	}
+	
+	@Override
+	public Object getRolebyId() throws Exception{
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public Object getUserbyId() throws Exception{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	
 
 
 

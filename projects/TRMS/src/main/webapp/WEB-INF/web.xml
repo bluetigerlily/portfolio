@@ -4,11 +4,17 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	version="4.0">
 	<display-name>TRMS</display-name>
+	
 	<servlet>
+		<description>description</description>
 		<servlet-name>FrontController</servlet-name>
-		<servlet-class>com.revature.controller.FrontController</servlet-class>
+		<servlet-class>com.revature.controller</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>EmailForm.jsp</welcome-file>
+	</welcome-file-list>
 	<servlet-mapping>
 		<servlet-name>FrontController</servlet-name>
 		<url-pattern>/</url-pattern>

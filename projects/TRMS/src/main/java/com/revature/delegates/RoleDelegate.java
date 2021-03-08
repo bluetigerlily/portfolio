@@ -1,12 +1,9 @@
 package com.revature.delegates;
 
-import java.io.IOException;
-import java.util.Set;
 
-import javax.servlet.ServletException;
+import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.Role;
 import com.revature.services.RoleServices;
@@ -21,13 +18,12 @@ public class RoleDelegate implements FrontControllerDelegate {
 	 *  /user/role - (GET) returns all of the roles a user can have
 	 *  
 	 */
-	private RoleServices rserv = new RolesServicesImpl();
 	private UserServices userv = new UserServicesImpl();
 	private ObjectMapper om = new ObjectMapper();
 
 	@Override
 	public void process(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException 
+			throws Exception 
 	{
 		String path = (String) req.getAttribute("path");
 		if (path.contains("role")) {

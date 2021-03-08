@@ -41,5 +41,26 @@ public class EventsServicesImpl implements EventsServices {
 	public User getAllEvents() throws Exception {
 		return eventsdao.getAll();
 	}
+	
+	
+	@Override
+	public Object getPendingEvents() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public Events getEventById(int eventid) throws Exception{
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public void removeEvents(Events e) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 }
