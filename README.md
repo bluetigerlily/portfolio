@@ -1,3 +1,3 @@
-# 2102 feb01 usf
+# Projects from Training
 
-Repository for the USF Java w/ Microservices batch starting on February 1, 2021.# project
+Repository for the USF Java w/ Microservices projects I did during training
